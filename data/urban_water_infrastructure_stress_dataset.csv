@@ -1,0 +1,433 @@
+ward_id,ward_name,month,rainfall_mm,drainage_quality,elevation_category,green_cover_percent,impervious_surface_percent,population_density,water_complaints_count,flood_incidents_count,stress_level
+1,Mahadevapura,2022-01,331,good,low,21,29,30911,37,5,Low
+1,Mahadevapura,2022-02,374,average,high,42,24,6816,35,2,Low
+1,Mahadevapura,2022-03,71,poor,medium,22,35,11315,26,4,Medium
+1,Mahadevapura,2022-04,590,average,low,43,25,22240,38,3,Low
+1,Mahadevapura,2022-05,429,poor,low,54,43,7376,45,5,High
+1,Mahadevapura,2022-06,381,poor,medium,22,46,20266,46,3,High
+1,Mahadevapura,2022-07,437,good,medium,73,66,13822,36,4,Low
+1,Mahadevapura,2022-08,249,poor,low,78,63,27902,33,3,Low
+1,Mahadevapura,2022-09,74,poor,medium,58,39,34581,22,1,Low
+1,Mahadevapura,2022-10,40,good,low,55,63,26783,18,1,Low
+1,Mahadevapura,2022-11,593,good,low,26,54,19535,59,8,Medium
+1,Mahadevapura,2022-12,62,good,low,72,56,27482,20,1,Low
+1,Mahadevapura,2023-01,23,good,low,29,83,5931,14,1,Low
+1,Mahadevapura,2023-02,132,good,low,78,30,9451,23,1,Low
+1,Mahadevapura,2023-03,562,poor,low,70,90,13123,60,5,High
+1,Mahadevapura,2023-04,367,average,low,44,39,6719,28,3,Low
+1,Mahadevapura,2023-05,237,average,low,38,53,13238,17,2,Low
+1,Mahadevapura,2023-06,429,average,medium,55,36,26626,42,7,Medium
+1,Mahadevapura,2023-07,467,good,medium,65,70,17073,43,6,Medium
+1,Mahadevapura,2023-08,493,average,low,23,46,18438,36,5,Medium
+1,Mahadevapura,2023-09,348,average,low,34,88,7324,37,6,Low
+1,Mahadevapura,2023-10,72,good,medium,34,52,15383,27,2,Low
+1,Mahadevapura,2023-11,485,poor,high,74,81,19854,42,6,High
+1,Mahadevapura,2023-12,147,poor,low,48,81,31159,36,4,Medium
+1,Mahadevapura,2024-01,528,poor,high,82,66,8803,56,4,Medium
+1,Mahadevapura,2024-02,27,good,low,26,53,20986,16,2,Low
+1,Mahadevapura,2024-03,364,good,medium,79,62,24854,32,3,Low
+1,Mahadevapura,2024-04,245,good,medium,44,45,20961,32,2,Low
+1,Mahadevapura,2024-05,29,good,medium,75,53,10345,28,2,Low
+1,Mahadevapura,2024-06,457,good,medium,59,66,6639,37,5,Medium
+1,Mahadevapura,2024-07,232,average,low,76,20,19711,34,3,Low
+1,Mahadevapura,2024-08,86,good,low,64,45,19664,13,1,Low
+1,Mahadevapura,2024-09,340,poor,high,65,79,17152,48,6,Medium
+1,Mahadevapura,2024-10,162,poor,low,34,79,30427,35,4,Medium
+1,Mahadevapura,2024-11,485,average,low,85,90,8292,34,5,Medium
+1,Mahadevapura,2024-12,105,average,high,70,44,31071,15,2,Low
+2,Yelahanka,2022-01,257,poor,medium,56,53,21837,31,3,Low
+2,Yelahanka,2022-02,62,good,low,73,86,17783,26,3,Low
+2,Yelahanka,2022-03,544,poor,medium,71,43,23941,33,4,Medium
+2,Yelahanka,2022-04,176,poor,medium,30,27,14681,33,2,Low
+2,Yelahanka,2022-05,543,average,medium,28,27,12142,38,3,Medium
+2,Yelahanka,2022-06,43,good,medium,18,28,18524,14,1,Low
+2,Yelahanka,2022-07,524,poor,low,80,88,30455,51,3,High
+2,Yelahanka,2022-08,253,average,high,48,45,31525,31,3,Low
+2,Yelahanka,2022-09,426,poor,medium,24,50,18035,29,3,High
+2,Yelahanka,2022-10,310,good,high,34,66,8685,30,3,Low
+2,Yelahanka,2022-11,478,poor,high,65,82,9334,54,6,High
+2,Yelahanka,2022-12,165,good,high,66,63,17804,20,1,Low
+2,Yelahanka,2023-01,326,poor,low,58,90,19029,39,6,Medium
+2,Yelahanka,2023-02,393,average,medium,80,28,7697,49,5,Medium
+2,Yelahanka,2023-03,107,poor,low,38,54,28765,14,1,Low
+2,Yelahanka,2023-04,264,average,medium,80,83,26951,31,4,Low
+2,Yelahanka,2023-05,285,poor,medium,69,29,12812,18,2,Low
+2,Yelahanka,2023-06,266,poor,high,23,53,32271,22,1,Medium
+2,Yelahanka,2023-07,11,average,medium,49,36,5415,19,2,Low
+2,Yelahanka,2023-08,112,good,low,38,45,34547,18,1,Low
+2,Yelahanka,2023-09,543,good,low,79,42,12864,44,7,Medium
+2,Yelahanka,2023-10,256,poor,low,79,90,10208,37,2,Medium
+2,Yelahanka,2023-11,251,good,low,70,83,21888,32,2,Low
+2,Yelahanka,2023-12,315,average,high,58,45,31272,43,5,Low
+2,Yelahanka,2024-01,414,good,high,31,21,6317,44,4,Low
+2,Yelahanka,2024-02,441,poor,low,63,84,25972,40,4,High
+2,Yelahanka,2024-03,300,poor,low,49,77,4118,31,2,Medium
+2,Yelahanka,2024-04,336,good,medium,46,24,32914,29,3,Low
+2,Yelahanka,2024-05,365,poor,low,25,80,13139,42,4,High
+2,Yelahanka,2024-06,254,average,low,48,31,8714,28,4,Low
+2,Yelahanka,2024-07,403,poor,low,44,30,23188,40,5,High
+2,Yelahanka,2024-08,398,good,medium,78,39,13311,48,6,Medium
+2,Yelahanka,2024-09,44,good,medium,80,74,28046,30,2,Low
+2,Yelahanka,2024-10,142,good,medium,17,49,6788,11,1,Low
+2,Yelahanka,2024-11,136,average,high,63,77,22301,14,2,Low
+2,Yelahanka,2024-12,544,average,medium,15,78,30138,38,2,Medium
+3,Jayanagar,2022-01,548,poor,medium,75,52,30516,36,3,Medium
+3,Jayanagar,2022-02,240,good,low,73,83,31706,32,4,Low
+3,Jayanagar,2022-03,490,good,low,20,45,6538,49,6,Medium
+3,Jayanagar,2022-04,339,poor,medium,53,37,4408,36,6,Medium
+3,Jayanagar,2022-05,497,poor,medium,42,82,13530,56,4,High
+3,Jayanagar,2022-06,292,average,medium,30,90,10529,32,4,Low
+3,Jayanagar,2022-07,484,poor,medium,79,77,12803,45,5,High
+3,Jayanagar,2022-08,215,poor,low,82,53,15781,20,1,Low
+3,Jayanagar,2022-09,286,good,medium,44,83,33416,37,3,Low
+3,Jayanagar,2022-10,25,poor,high,72,71,13894,30,3,Medium
+3,Jayanagar,2022-11,426,average,low,57,20,14634,49,4,Low
+3,Jayanagar,2022-12,407,poor,high,16,57,12297,38,5,High
+3,Jayanagar,2023-01,402,average,high,24,66,34324,40,4,Medium
+3,Jayanagar,2023-02,49,poor,low,51,39,12169,13,1,Low
+3,Jayanagar,2023-03,523,average,medium,69,23,30606,54,4,Low
+3,Jayanagar,2023-04,567,average,medium,21,72,18773,56,7,High
+3,Jayanagar,2023-05,293,average,high,85,36,9595,34,2,Low
+3,Jayanagar,2023-06,351,poor,low,48,71,25495,32,3,High
+3,Jayanagar,2023-07,494,average,low,36,40,6463,36,2,Low
+3,Jayanagar,2023-08,509,average,medium,57,77,18005,38,2,Medium
+3,Jayanagar,2023-09,197,poor,low,26,60,11835,26,2,Medium
+3,Jayanagar,2023-10,583,poor,low,67,69,17562,61,4,Medium
+3,Jayanagar,2023-11,215,average,low,22,83,13093,36,3,Low
+3,Jayanagar,2023-12,128,average,medium,42,31,12880,16,1,Low
+3,Jayanagar,2024-01,409,average,medium,54,22,8169,25,2,Low
+3,Jayanagar,2024-02,484,good,medium,24,70,34482,48,3,Medium
+3,Jayanagar,2024-03,459,poor,low,34,39,21116,49,7,High
+3,Jayanagar,2024-04,468,poor,medium,15,36,11621,47,7,High
+3,Jayanagar,2024-05,311,good,medium,82,75,26891,47,6,Low
+3,Jayanagar,2024-06,101,poor,medium,39,69,12548,18,3,Low
+3,Jayanagar,2024-07,10,average,high,50,60,25121,12,0,Low
+3,Jayanagar,2024-08,538,poor,low,67,59,5812,34,3,Medium
+3,Jayanagar,2024-09,510,good,medium,25,52,11465,53,4,Medium
+3,Jayanagar,2024-10,379,poor,low,58,73,15872,48,4,High
+3,Jayanagar,2024-11,202,poor,low,79,28,10724,28,3,Low
+3,Jayanagar,2024-12,319,good,low,74,48,12684,45,4,Low
+4,Whitefield,2022-01,111,good,medium,38,48,19894,23,3,Low
+4,Whitefield,2022-02,149,good,low,18,38,17611,12,2,Low
+4,Whitefield,2022-03,188,average,high,55,34,6600,18,1,Low
+4,Whitefield,2022-04,195,poor,high,74,24,14217,33,2,Low
+4,Whitefield,2022-05,382,good,medium,28,20,6563,30,4,Medium
+4,Whitefield,2022-06,359,average,high,41,68,15686,49,4,Low
+4,Whitefield,2022-07,442,poor,medium,40,67,21744,44,4,Medium
+4,Whitefield,2022-08,331,average,high,18,72,12126,49,4,Low
+4,Whitefield,2022-09,41,average,medium,22,52,10387,29,4,Low
+4,Whitefield,2022-10,347,average,low,20,53,28459,45,4,Low
+4,Whitefield,2022-11,282,poor,medium,23,23,31066,24,3,Medium
+4,Whitefield,2022-12,486,good,medium,64,52,33935,44,3,Low
+4,Whitefield,2023-01,135,good,low,53,39,23898,17,1,Low
+4,Whitefield,2023-02,327,average,medium,25,85,10465,37,4,Low
+4,Whitefield,2023-03,253,average,medium,76,90,21845,31,3,Low
+4,Whitefield,2023-04,436,good,high,48,30,10826,29,2,Low
+4,Whitefield,2023-05,510,good,high,37,49,8355,45,3,Low
+4,Whitefield,2023-06,240,good,high,30,57,13626,26,2,Low
+4,Whitefield,2023-07,381,poor,low,71,51,10086,32,3,Medium
+4,Whitefield,2023-08,157,poor,high,39,61,6123,25,2,Low
+4,Whitefield,2023-09,251,average,low,27,79,5213,23,3,Low
+4,Whitefield,2023-10,486,good,low,72,67,5322,41,4,Low
+4,Whitefield,2023-11,122,poor,medium,39,29,16197,25,3,Low
+4,Whitefield,2023-12,459,average,medium,15,33,24888,47,4,Medium
+4,Whitefield,2024-01,222,poor,low,20,46,12353,17,1,Medium
+4,Whitefield,2024-02,11,good,medium,62,43,24349,13,1,Low
+4,Whitefield,2024-03,208,poor,medium,76,28,17374,16,1,Low
+4,Whitefield,2024-04,563,poor,medium,35,70,26787,45,3,Medium
+4,Whitefield,2024-05,290,average,medium,21,59,28423,39,3,Low
+4,Whitefield,2024-06,424,average,high,61,45,16803,50,4,Low
+4,Whitefield,2024-07,208,good,medium,35,74,7720,19,1,Low
+4,Whitefield,2024-08,591,good,medium,35,36,4486,36,2,Low
+4,Whitefield,2024-09,145,average,high,26,67,28158,29,3,Low
+4,Whitefield,2024-10,149,average,low,36,28,7564,22,1,Low
+4,Whitefield,2024-11,202,average,high,20,81,14306,18,1,Low
+4,Whitefield,2024-12,88,good,medium,35,48,24350,20,2,Low
+5,KR Puram,2022-01,484,poor,low,66,86,9127,46,4,High
+5,KR Puram,2022-02,126,poor,high,39,25,32962,26,4,Low
+5,KR Puram,2022-03,331,poor,medium,85,59,25267,36,3,Low
+5,KR Puram,2022-04,596,poor,low,62,77,20501,53,6,High
+5,KR Puram,2022-05,23,poor,high,74,50,18641,29,2,Low
+5,KR Puram,2022-06,183,good,medium,23,36,15749,26,2,Low
+5,KR Puram,2022-07,93,good,medium,20,25,24854,11,1,Low
+5,KR Puram,2022-08,321,good,medium,21,84,33323,36,4,Low
+5,KR Puram,2022-09,26,good,high,29,44,8312,20,2,Low
+5,KR Puram,2022-10,169,average,medium,43,28,31296,22,2,Low
+5,KR Puram,2022-11,162,average,medium,73,38,12328,28,2,Low
+5,KR Puram,2022-12,213,average,medium,45,60,16198,17,1,Low
+5,KR Puram,2023-01,186,average,medium,50,61,33340,27,3,Low
+5,KR Puram,2023-02,270,poor,medium,61,77,22192,37,5,Medium
+5,KR Puram,2023-03,258,good,medium,65,67,12675,31,2,Low
+5,KR Puram,2023-04,591,poor,low,25,76,11538,44,7,High
+5,KR Puram,2023-05,303,good,low,55,20,28481,19,2,Low
+5,KR Puram,2023-06,152,poor,medium,68,85,15930,16,2,Medium
+5,KR Puram,2023-07,500,poor,medium,17,26,4085,47,4,High
+5,KR Puram,2023-08,311,poor,low,43,72,23123,32,4,Medium
+5,KR Puram,2023-09,209,average,high,35,37,4462,39,4,Low
+5,KR Puram,2023-10,152,average,low,33,54,17171,37,3,Low
+5,KR Puram,2023-11,11,poor,high,59,76,23722,22,1,Medium
+5,KR Puram,2023-12,254,poor,low,22,88,4826,33,4,Medium
+5,KR Puram,2024-01,243,poor,high,28,21,24074,32,3,Medium
+5,KR Puram,2024-02,145,average,medium,79,73,30652,33,4,Low
+5,KR Puram,2024-03,520,average,low,21,81,27442,52,8,High
+5,KR Puram,2024-04,384,good,medium,74,30,28305,43,3,Low
+5,KR Puram,2024-05,179,poor,low,44,24,8039,21,2,Low
+5,KR Puram,2024-06,53,poor,medium,70,86,12693,19,2,Medium
+5,KR Puram,2024-07,87,good,low,48,50,31581,32,3,Low
+5,KR Puram,2024-08,163,good,low,64,62,23701,21,1,Low
+5,KR Puram,2024-09,549,average,high,15,23,18326,55,6,Medium
+5,KR Puram,2024-10,584,good,medium,65,29,22520,39,4,Low
+5,KR Puram,2024-11,33,poor,low,35,64,8647,29,4,Low
+5,KR Puram,2024-12,31,poor,medium,20,28,28142,5,0,Medium
+6,BTM Layout,2022-01,372,poor,high,83,28,32826,47,3,Medium
+6,BTM Layout,2022-02,109,poor,low,19,24,31777,33,4,Medium
+6,BTM Layout,2022-03,294,average,low,41,57,14457,31,2,Low
+6,BTM Layout,2022-04,267,poor,low,51,26,27454,41,3,Low
+6,BTM Layout,2022-05,328,good,medium,75,56,24259,45,7,Low
+6,BTM Layout,2022-06,422,poor,medium,27,64,19366,50,8,High
+6,BTM Layout,2022-07,550,average,medium,26,56,9582,48,8,Medium
+6,BTM Layout,2022-08,536,poor,medium,21,20,15396,46,6,High
+6,BTM Layout,2022-09,503,average,high,78,64,31257,49,4,Low
+6,BTM Layout,2022-10,591,good,low,42,49,20328,41,5,Medium
+6,BTM Layout,2022-11,82,average,high,28,61,15652,12,1,Low
+6,BTM Layout,2022-12,404,good,medium,69,23,16188,30,3,Low
+6,BTM Layout,2023-01,269,average,medium,36,68,32966,40,4,Low
+6,BTM Layout,2023-02,471,poor,medium,19,64,23057,41,2,High
+6,BTM Layout,2023-03,159,good,medium,85,61,9555,27,2,Low
+6,BTM Layout,2023-04,263,average,low,74,50,20636,24,2,Low
+6,BTM Layout,2023-05,308,good,high,34,39,12112,43,3,Low
+6,BTM Layout,2023-06,534,average,low,39,53,27879,37,4,Low
+6,BTM Layout,2023-07,104,poor,low,33,58,28028,19,1,Low
+6,BTM Layout,2023-08,280,poor,medium,28,55,10764,32,2,Medium
+6,BTM Layout,2023-09,34,poor,high,70,48,20399,25,2,Low
+6,BTM Layout,2023-10,474,poor,low,66,20,28279,35,2,Medium
+6,BTM Layout,2023-11,587,average,medium,44,49,26269,41,5,Medium
+6,BTM Layout,2023-12,464,average,low,27,73,11942,56,4,Medium
+6,BTM Layout,2024-01,160,poor,medium,73,22,24367,23,1,Low
+6,BTM Layout,2024-02,187,good,low,16,69,31258,31,4,Low
+6,BTM Layout,2024-03,39,poor,low,40,86,15410,12,0,Medium
+6,BTM Layout,2024-04,554,poor,medium,17,67,21094,46,3,High
+6,BTM Layout,2024-05,467,poor,medium,65,85,28992,36,3,High
+6,BTM Layout,2024-06,57,poor,low,22,21,6463,17,1,Medium
+6,BTM Layout,2024-07,360,average,low,53,71,34799,41,4,Medium
+6,BTM Layout,2024-08,401,average,low,23,44,19373,45,3,Medium
+6,BTM Layout,2024-09,231,good,low,67,79,13645,43,3,Low
+6,BTM Layout,2024-10,128,good,medium,44,54,27075,23,2,Low
+6,BTM Layout,2024-11,436,average,medium,50,65,12027,49,4,Low
+6,BTM Layout,2024-12,328,average,medium,25,66,9005,32,2,Low
+7,Hebbal,2022-01,58,poor,medium,56,37,21388,17,2,Low
+7,Hebbal,2022-02,11,poor,low,52,52,23929,7,0,Low
+7,Hebbal,2022-03,239,poor,medium,34,46,33625,29,2,Low
+7,Hebbal,2022-04,171,average,medium,26,90,29823,37,3,Low
+7,Hebbal,2022-05,202,average,low,25,76,25994,20,1,Low
+7,Hebbal,2022-06,121,poor,low,32,80,20157,30,5,Medium
+7,Hebbal,2022-07,495,average,low,77,51,20324,36,2,Low
+7,Hebbal,2022-08,6,poor,low,78,57,31543,19,1,Low
+7,Hebbal,2022-09,436,average,high,24,43,24874,38,6,Medium
+7,Hebbal,2022-10,21,average,medium,57,32,20732,18,1,Low
+7,Hebbal,2022-11,147,poor,medium,31,63,7095,34,3,Low
+7,Hebbal,2022-12,349,average,medium,41,56,18260,34,2,Low
+7,Hebbal,2023-01,257,average,high,52,65,31123,34,2,Low
+7,Hebbal,2023-02,341,average,low,79,64,10669,44,3,Low
+7,Hebbal,2023-03,120,average,low,53,36,23216,29,4,Low
+7,Hebbal,2023-04,41,average,medium,66,89,22810,10,0,Low
+7,Hebbal,2023-05,307,poor,low,75,27,29854,35,2,Low
+7,Hebbal,2023-06,385,average,medium,25,47,5293,46,3,Medium
+7,Hebbal,2023-07,178,poor,low,19,73,29379,18,3,Medium
+7,Hebbal,2023-08,377,good,low,54,53,32260,34,4,Low
+7,Hebbal,2023-09,431,poor,low,21,83,22596,46,7,High
+7,Hebbal,2023-10,121,good,medium,66,77,6202,13,1,Low
+7,Hebbal,2023-11,159,average,medium,28,30,25119,26,2,Low
+7,Hebbal,2023-12,155,average,medium,16,35,32130,13,1,Low
+7,Hebbal,2024-01,124,poor,low,46,77,28037,36,4,Medium
+7,Hebbal,2024-02,51,average,medium,33,30,13605,25,1,Low
+7,Hebbal,2024-03,510,average,high,47,26,27501,31,5,Medium
+7,Hebbal,2024-04,62,poor,medium,25,69,14192,18,2,Medium
+7,Hebbal,2024-05,498,average,low,71,80,26179,39,4,Medium
+7,Hebbal,2024-06,119,average,medium,68,81,16639,37,2,Low
+7,Hebbal,2024-07,278,good,medium,52,55,5986,39,3,Low
+7,Hebbal,2024-08,15,good,medium,54,74,33102,14,1,Low
+7,Hebbal,2024-09,396,average,medium,44,77,13283,50,8,Medium
+7,Hebbal,2024-10,329,poor,medium,20,56,31303,26,3,Medium
+7,Hebbal,2024-11,280,good,medium,85,83,15365,39,5,Low
+7,Hebbal,2024-12,552,average,medium,40,49,14140,53,8,Medium
+8,Rajajinagar,2022-01,404,average,low,47,21,29941,36,2,Low
+8,Rajajinagar,2022-02,553,poor,high,23,49,17047,52,3,High
+8,Rajajinagar,2022-03,265,good,medium,76,84,23311,27,3,Low
+8,Rajajinagar,2022-04,217,poor,low,52,66,22935,35,3,Low
+8,Rajajinagar,2022-05,412,good,high,46,25,34232,39,3,Low
+8,Rajajinagar,2022-06,108,average,medium,25,39,14347,28,4,Low
+8,Rajajinagar,2022-07,353,poor,medium,27,24,10705,39,3,High
+8,Rajajinagar,2022-08,600,average,low,50,74,7182,53,6,Medium
+8,Rajajinagar,2022-09,260,good,low,38,68,6741,20,3,Low
+8,Rajajinagar,2022-10,35,average,high,73,82,31708,10,0,Low
+8,Rajajinagar,2022-11,122,good,low,55,49,24992,12,0,Low
+8,Rajajinagar,2022-12,402,poor,high,62,50,27616,33,4,Medium
+8,Rajajinagar,2023-01,39,good,high,22,90,33641,9,1,Low
+8,Rajajinagar,2023-02,264,good,medium,76,27,7311,20,1,Low
+8,Rajajinagar,2023-03,5,good,medium,53,76,28834,26,3,Low
+8,Rajajinagar,2023-04,482,average,low,30,67,19771,44,5,Medium
+8,Rajajinagar,2023-05,451,poor,low,16,79,27502,37,6,High
+8,Rajajinagar,2023-06,160,good,low,62,37,29503,25,3,Low
+8,Rajajinagar,2023-07,394,good,medium,72,63,14569,34,2,Low
+8,Rajajinagar,2023-08,118,average,low,43,27,9906,30,2,Low
+8,Rajajinagar,2023-09,566,good,medium,34,54,17705,48,5,Medium
+8,Rajajinagar,2023-10,159,poor,medium,52,62,30350,19,1,Low
+8,Rajajinagar,2023-11,502,poor,medium,76,34,9025,46,7,High
+8,Rajajinagar,2023-12,216,average,high,30,52,28734,22,2,Low
+8,Rajajinagar,2024-01,442,good,high,45,32,16784,36,3,Low
+8,Rajajinagar,2024-02,166,poor,medium,52,38,24965,12,0,Low
+8,Rajajinagar,2024-03,519,average,low,15,87,13384,41,3,Medium
+8,Rajajinagar,2024-04,445,poor,medium,50,43,8524,33,2,Medium
+8,Rajajinagar,2024-05,235,good,low,25,31,33141,34,2,Low
+8,Rajajinagar,2024-06,280,poor,low,39,59,10628,20,2,Low
+8,Rajajinagar,2024-07,532,average,medium,22,86,30563,47,4,Medium
+8,Rajajinagar,2024-08,288,good,high,78,31,4506,31,2,Low
+8,Rajajinagar,2024-09,136,good,low,38,66,5201,18,1,Low
+8,Rajajinagar,2024-10,588,average,low,81,77,20896,41,5,Medium
+8,Rajajinagar,2024-11,365,good,high,56,68,22884,49,8,Medium
+8,Rajajinagar,2024-12,298,good,high,78,77,20820,22,1,Low
+9,Indiranagar,2022-01,550,poor,low,26,48,24285,39,4,High
+9,Indiranagar,2022-02,105,average,medium,18,22,7161,29,3,Low
+9,Indiranagar,2022-03,267,poor,medium,74,86,11810,44,3,Medium
+9,Indiranagar,2022-04,105,average,low,37,25,12946,10,0,Low
+9,Indiranagar,2022-05,505,average,medium,29,35,7982,42,5,Medium
+9,Indiranagar,2022-06,554,average,high,33,79,28463,49,6,Medium
+9,Indiranagar,2022-07,18,good,low,68,87,5186,20,3,Low
+9,Indiranagar,2022-08,371,average,low,57,75,31624,44,4,Medium
+9,Indiranagar,2022-09,410,good,low,81,38,26287,36,4,Low
+9,Indiranagar,2022-10,432,average,low,28,87,10143,33,3,Medium
+9,Indiranagar,2022-11,443,poor,medium,43,37,17786,39,3,Medium
+9,Indiranagar,2022-12,47,good,high,20,24,32364,24,2,Low
+9,Indiranagar,2023-01,279,average,high,19,32,12211,21,1,Low
+9,Indiranagar,2023-02,13,average,high,51,34,14007,14,1,Low
+9,Indiranagar,2023-03,123,poor,high,80,54,6768,25,1,Low
+9,Indiranagar,2023-04,151,average,medium,52,72,22918,23,2,Low
+9,Indiranagar,2023-05,249,good,medium,51,78,23986,42,4,Low
+9,Indiranagar,2023-06,395,poor,medium,73,90,13951,48,3,High
+9,Indiranagar,2023-07,480,good,low,57,48,10186,46,3,Low
+9,Indiranagar,2023-08,392,good,low,60,40,32241,32,2,Low
+9,Indiranagar,2023-09,570,average,low,42,57,5864,60,10,Medium
+9,Indiranagar,2023-10,162,average,medium,59,76,25552,16,1,Low
+9,Indiranagar,2023-11,397,good,low,28,86,11378,50,6,High
+9,Indiranagar,2023-12,426,average,low,40,55,30908,44,6,Medium
+9,Indiranagar,2024-01,486,poor,medium,31,72,32535,36,6,High
+9,Indiranagar,2024-02,420,good,medium,78,70,22741,33,2,Low
+9,Indiranagar,2024-03,286,good,medium,63,77,26696,36,3,Low
+9,Indiranagar,2024-04,361,poor,low,64,61,4221,50,3,Medium
+9,Indiranagar,2024-05,389,average,low,53,38,18275,42,3,Low
+9,Indiranagar,2024-06,595,poor,high,57,61,31636,57,6,High
+9,Indiranagar,2024-07,333,poor,medium,16,23,5554,28,2,Medium
+9,Indiranagar,2024-08,307,good,medium,83,75,20955,39,3,Low
+9,Indiranagar,2024-09,398,average,low,59,77,4340,49,7,Medium
+9,Indiranagar,2024-10,537,poor,medium,79,71,25251,52,6,High
+9,Indiranagar,2024-11,192,good,medium,71,63,26661,31,4,Low
+9,Indiranagar,2024-12,174,average,low,24,59,20796,19,2,Low
+10,Electronic City,2022-01,301,average,high,80,73,24679,27,1,Low
+10,Electronic City,2022-02,296,good,low,39,72,9977,23,3,Low
+10,Electronic City,2022-03,361,average,medium,20,72,4351,51,8,High
+10,Electronic City,2022-04,314,good,medium,53,70,31595,26,4,Low
+10,Electronic City,2022-05,30,poor,medium,85,54,32545,26,1,Low
+10,Electronic City,2022-06,526,good,medium,67,35,8762,37,2,Low
+10,Electronic City,2022-07,521,poor,low,36,86,20070,50,4,High
+10,Electronic City,2022-08,63,average,medium,56,38,27444,13,1,Low
+10,Electronic City,2022-09,282,poor,low,27,28,15432,24,1,Medium
+10,Electronic City,2022-10,394,poor,low,65,25,18406,24,2,Medium
+10,Electronic City,2022-11,255,poor,low,37,60,4201,33,3,Low
+10,Electronic City,2022-12,428,average,high,78,28,11960,47,3,Low
+10,Electronic City,2023-01,598,poor,low,77,22,29977,42,6,High
+10,Electronic City,2023-02,177,poor,low,15,57,16977,31,2,Medium
+10,Electronic City,2023-03,117,average,high,57,71,25341,14,2,Low
+10,Electronic City,2023-04,432,good,low,46,69,10265,43,4,Low
+10,Electronic City,2023-05,352,poor,low,18,63,30374,28,3,High
+10,Electronic City,2023-06,132,poor,low,31,76,19304,38,4,Medium
+10,Electronic City,2023-07,163,average,low,66,68,24622,32,3,Low
+10,Electronic City,2023-08,304,good,medium,44,77,26128,27,2,Low
+10,Electronic City,2023-09,450,average,low,46,71,23929,46,5,Medium
+10,Electronic City,2023-10,128,good,low,80,31,21779,17,1,Low
+10,Electronic City,2023-11,29,average,medium,54,21,16777,25,3,Low
+10,Electronic City,2023-12,181,good,low,39,33,6230,29,2,Low
+10,Electronic City,2024-01,512,good,low,54,31,11419,40,5,Medium
+10,Electronic City,2024-02,408,poor,medium,74,36,34695,33,4,Medium
+10,Electronic City,2024-03,30,average,medium,59,72,4827,28,2,Low
+10,Electronic City,2024-04,254,good,medium,27,43,13551,20,2,Low
+10,Electronic City,2024-05,224,good,low,20,40,18113,21,2,Low
+10,Electronic City,2024-06,159,average,low,54,42,22499,19,1,Low
+10,Electronic City,2024-07,533,poor,medium,59,20,7665,55,5,High
+10,Electronic City,2024-08,43,good,medium,21,51,26317,9,1,Low
+10,Electronic City,2024-09,326,poor,high,26,73,26763,47,3,Medium
+10,Electronic City,2024-10,226,poor,low,69,76,34481,28,2,Medium
+10,Electronic City,2024-11,463,average,medium,41,74,26056,47,5,Medium
+10,Electronic City,2024-12,501,good,low,48,42,21904,36,4,Low
+11,Banashankari,2022-01,556,poor,high,36,65,15378,49,7,High
+11,Banashankari,2022-02,206,average,low,77,81,11794,40,4,Low
+11,Banashankari,2022-03,6,average,medium,59,58,8371,27,3,Low
+11,Banashankari,2022-04,576,poor,medium,30,90,17914,63,7,High
+11,Banashankari,2022-05,158,average,medium,66,46,7751,34,3,Low
+11,Banashankari,2022-06,12,average,low,22,55,13958,11,1,Low
+11,Banashankari,2022-07,316,average,low,56,76,19357,41,3,Low
+11,Banashankari,2022-08,296,poor,low,16,79,28590,38,5,High
+11,Banashankari,2022-09,339,good,medium,28,82,18229,40,4,Low
+11,Banashankari,2022-10,556,average,low,26,56,24569,54,5,Medium
+11,Banashankari,2022-11,251,poor,medium,18,70,31511,23,2,Medium
+11,Banashankari,2022-12,376,poor,medium,36,33,29710,46,4,Medium
+11,Banashankari,2023-01,334,average,medium,60,60,11544,34,4,Low
+11,Banashankari,2023-02,564,good,high,47,50,5891,36,5,Medium
+11,Banashankari,2023-03,580,good,high,66,26,34963,40,3,Low
+11,Banashankari,2023-04,433,average,low,53,30,8649,48,5,Medium
+11,Banashankari,2023-05,167,poor,medium,66,31,5308,25,1,Low
+11,Banashankari,2023-06,195,poor,low,19,85,17940,21,2,Medium
+11,Banashankari,2023-07,73,average,medium,68,63,6055,23,3,Low
+11,Banashankari,2023-08,180,good,low,52,20,18521,36,3,Low
+11,Banashankari,2023-09,581,poor,low,56,86,19088,52,3,High
+11,Banashankari,2023-10,158,good,high,25,27,27683,32,2,Low
+11,Banashankari,2023-11,304,average,medium,62,81,25512,43,5,Low
+11,Banashankari,2023-12,306,good,medium,18,44,11290,41,3,Low
+11,Banashankari,2024-01,87,poor,medium,68,66,21366,17,1,Low
+11,Banashankari,2024-02,405,poor,low,40,90,28570,33,3,High
+11,Banashankari,2024-03,259,average,low,47,82,11438,38,2,Low
+11,Banashankari,2024-04,231,average,medium,80,30,31903,28,4,Low
+11,Banashankari,2024-05,450,poor,medium,79,34,24532,50,3,Medium
+11,Banashankari,2024-06,104,average,medium,84,41,10279,27,2,Low
+11,Banashankari,2024-07,95,poor,medium,22,71,11762,12,1,Medium
+11,Banashankari,2024-08,42,poor,medium,42,78,13828,11,1,Medium
+11,Banashankari,2024-09,436,good,low,40,34,34064,50,4,Low
+11,Banashankari,2024-10,172,average,high,16,52,8021,20,1,Low
+11,Banashankari,2024-11,525,good,high,77,25,30756,50,4,Low
+11,Banashankari,2024-12,102,average,low,29,24,34322,28,3,Low
+12,Malleshwaram,2022-01,260,average,medium,17,76,7721,45,7,Medium
+12,Malleshwaram,2022-02,499,poor,high,38,39,22161,39,3,Medium
+12,Malleshwaram,2022-03,147,average,low,49,76,4452,14,1,Low
+12,Malleshwaram,2022-04,154,average,medium,19,24,6444,15,1,Low
+12,Malleshwaram,2022-05,487,good,medium,72,70,11510,51,3,Low
+12,Malleshwaram,2022-06,77,average,medium,54,36,23307,26,4,Low
+12,Malleshwaram,2022-07,216,poor,low,74,62,22908,31,2,Low
+12,Malleshwaram,2022-08,362,average,low,76,62,11425,25,2,Low
+12,Malleshwaram,2022-09,470,good,medium,33,38,12934,41,4,Low
+12,Malleshwaram,2022-10,65,average,low,82,37,26892,7,0,Low
+12,Malleshwaram,2022-11,97,good,medium,27,66,29949,19,2,Low
+12,Malleshwaram,2022-12,144,average,low,58,66,20675,33,3,Low
+12,Malleshwaram,2023-01,358,good,medium,57,27,27076,32,2,Low
+12,Malleshwaram,2023-02,493,average,high,45,64,8941,36,4,Low
+12,Malleshwaram,2023-03,7,good,medium,66,77,16978,24,2,Low
+12,Malleshwaram,2023-04,172,average,low,54,52,27811,31,2,Low
+12,Malleshwaram,2023-05,348,poor,low,25,42,13969,40,3,Medium
+12,Malleshwaram,2023-06,479,average,medium,69,28,31478,43,3,Low
+12,Malleshwaram,2023-07,179,poor,low,17,41,24527,21,2,Medium
+12,Malleshwaram,2023-08,20,poor,low,40,56,32313,21,3,Low
+12,Malleshwaram,2023-09,201,poor,low,31,26,6598,15,1,Low
+12,Malleshwaram,2023-10,139,poor,low,16,61,34241,12,1,Medium
+12,Malleshwaram,2023-11,329,average,medium,77,71,23981,45,4,Low
+12,Malleshwaram,2023-12,178,poor,medium,20,31,24522,31,2,Medium
+12,Malleshwaram,2024-01,506,good,low,74,21,4843,39,3,Low
+12,Malleshwaram,2024-02,57,average,medium,57,40,7062,6,0,Low
+12,Malleshwaram,2024-03,215,poor,medium,26,65,30673,28,2,Medium
+12,Malleshwaram,2024-04,352,average,medium,34,62,11536,47,4,Low
+12,Malleshwaram,2024-05,489,good,medium,54,90,27146,48,3,Medium
+12,Malleshwaram,2024-06,284,average,medium,50,36,12287,18,1,Low
+12,Malleshwaram,2024-07,487,poor,high,61,39,24607,37,3,Medium
+12,Malleshwaram,2024-08,92,good,medium,30,27,21801,23,2,Low
+12,Malleshwaram,2024-09,568,good,low,61,39,33584,39,4,Low
+12,Malleshwaram,2024-10,541,poor,medium,46,76,32175,51,5,High
+12,Malleshwaram,2024-11,352,good,low,42,61,29880,24,3,Low
+12,Malleshwaram,2024-12,15,poor,medium,66,64,5965,13,1,Low
