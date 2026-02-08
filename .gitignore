@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# ML artifacts (optional to exclude)
+models/*.joblib
+
+# OS
+.DS_Store
+Thumbs.db

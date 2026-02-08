@@ -1,0 +1,732 @@
+[
+  {
+    "id": 1,
+    "category": "Infrastructure",
+    "message": "Test feedback message 123",
+    "created_at": "2026-02-08T13:24:11.336126",
+    "status": "ok",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "ward_name": "Unknown",
+    "sentiment": "positive",
+    "feedback_type": "other"
+  },
+  {
+    "id": 2,
+    "category": "Infrastructure",
+    "message": "Test feedback message 123",
+    "created_at": "2026-02-08T13:24:16.263915",
+    "status": "ok",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "ward_name": "Unknown",
+    "sentiment": "positive",
+    "feedback_type": "other"
+  },
+  {
+    "id": 3,
+    "category": "Water",
+    "message": "test feedback",
+    "created_at": "2026-02-08T13:25:48.110606",
+    "status": "ok",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "ward_name": "Unknown",
+    "sentiment": "positive",
+    "feedback_type": "other"
+  },
+  {
+    "id": 4,
+    "category": "Infrastructure",
+    "message": "Traffic signals not working near X",
+    "domain": "traffic",
+    "tags": [
+      "platform"
+    ],
+    "target": "developer",
+    "created_at": "2026-02-08T16:58:01.397258",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 5,
+    "category": "App Issue",
+    "message": "App shows Failed to fetch / CORS bug",
+    "domain": "general",
+    "tags": [
+      "platform"
+    ],
+    "target": "developer",
+    "created_at": "2026-02-08T16:58:01.488090",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 6,
+    "category": "Login",
+    "message": "Developer portal login broken",
+    "domain": "general",
+    "tags": [
+      "platform",
+      "developer"
+    ],
+    "target": "developer",
+    "created_at": "2026-02-08T16:58:01.518370",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 7,
+    "category": "Water Supply",
+    "message": "Flooding issue in my ward",
+    "domain": "water",
+    "tags": [
+      "platform"
+    ],
+    "target": "developer",
+    "created_at": "2026-02-08T16:58:01.550267",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 8,
+    "category": "Infrastructure",
+    "message": "Traffic signals not working near X",
+    "domain": "traffic",
+    "tags": [],
+    "target": "builder",
+    "created_at": "2026-02-08T16:59:33.293037",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 9,
+    "category": "App Issue",
+    "message": "App shows Failed to fetch / CORS bug",
+    "domain": "general",
+    "tags": [
+      "platform"
+    ],
+    "target": "developer",
+    "created_at": "2026-02-08T16:59:33.336743",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 10,
+    "category": "Login",
+    "message": "Developer portal login broken",
+    "domain": "general",
+    "tags": [
+      "developer",
+      "platform"
+    ],
+    "target": "developer",
+    "created_at": "2026-02-08T16:59:33.418081",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 11,
+    "category": "Water Supply",
+    "message": "Flooding issue in my ward",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "created_at": "2026-02-08T16:59:33.444153",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 12,
+    "category": "Water",
+    "message": "there is no water here dawg \ud83d\ude4f\ud83d\ude2d",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "created_at": "2026-02-08T17:03:33.097425",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "positive",
+    "feedback_type": "other"
+  },
+  {
+    "id": 13,
+    "category": "Water",
+    "message": "Flooding in my ward, drains are broken",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "created_at": "2026-02-08T17:21:30.887798",
+    "status": "ok",
+    "ward_name": "Unknown",
+    "sentiment": "negative",
+    "feedback_type": "other"
+  },
+  {
+    "id": 14,
+    "category": "Water",
+    "message": "Flooding in my ward, drains are broken",
+    "ward_name": "Koramangala",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:22:17.515103",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 15,
+    "category": "General",
+    "message": "UI looks great, thanks",
+    "ward_name": "Jayanagar",
+    "domain": "general",
+    "tags": [
+      "platform"
+    ],
+    "target": "developer",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:22:17.551758",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 16,
+    "category": "Bug",
+    "message": "CORS bug on API",
+    "ward_name": "Any",
+    "domain": "general",
+    "tags": [
+      "platform"
+    ],
+    "target": "developer",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:22:17.581989",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 17,
+    "category": "Platform UI",
+    "message": "The new developer dashboard is great and fast",
+    "ward_name": "Indiranagar",
+    "domain": "general",
+    "tags": [
+      "developer",
+      "platform"
+    ],
+    "target": "developer",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:39:47.109587",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 18,
+    "category": "Admin Access",
+    "message": "I hate the new login system, it is broken and slow",
+    "ward_name": "Koramangala",
+    "domain": "general",
+    "tags": [
+      "developer",
+      "platform"
+    ],
+    "target": "developer",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:39:47.149379",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 19,
+    "category": "Test",
+    "message": "There is no water here in the layout",
+    "ward_name": "TestWard",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:55:14.932013",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 20,
+    "category": "Test",
+    "message": "Power not coming since morning",
+    "ward_name": "TestWard",
+    "domain": "electricity",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:55:14.974936",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 21,
+    "category": "Test",
+    "message": "The street light is not working",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:55:15.010022",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 22,
+    "category": "Test",
+    "message": "We are without power for 2 days",
+    "ward_name": "TestWard",
+    "domain": "electricity",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:55:15.043860",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 23,
+    "category": "Test",
+    "message": "Severe flooding in the main road",
+    "ward_name": "TestWard",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:55:15.077538",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 24,
+    "category": "Test",
+    "message": "Great service, thank you!",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:55:15.111669",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 25,
+    "category": "Test",
+    "message": "The app is amazing and very useful",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:55:15.143412",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 26,
+    "category": "Test",
+    "message": "This is terrible and useless",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:55:15.176777",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 27,
+    "category": "Test",
+    "message": "The service is not bad",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:55:15.204707",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 28,
+    "category": "Test",
+    "message": "There is no water here in the layout",
+    "ward_name": "TestWard",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:56:02.854452",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 29,
+    "category": "Test",
+    "message": "Power not coming since morning",
+    "ward_name": "TestWard",
+    "domain": "electricity",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:56:02.890843",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 30,
+    "category": "Test",
+    "message": "The street light is not working",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:56:02.920872",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 31,
+    "category": "Test",
+    "message": "We are without power for 2 days",
+    "ward_name": "TestWard",
+    "domain": "electricity",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:56:02.989463",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 32,
+    "category": "Test",
+    "message": "Severe flooding in the main road",
+    "ward_name": "TestWard",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:56:03.023406",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 33,
+    "category": "Test",
+    "message": "Great service, thank you!",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:56:03.058071",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 34,
+    "category": "Test",
+    "message": "The app is amazing and very useful",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:56:03.089954",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 35,
+    "category": "Test",
+    "message": "This is terrible and useless",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T17:56:03.118200",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 36,
+    "category": "Test",
+    "message": "The service is not bad",
+    "ward_name": "TestWard",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T17:56:03.150288",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 37,
+    "category": "Infrastructure",
+    "message": "traffic is too goated gang. its killing all the vibe",
+    "ward_name": "Indiranagar",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T18:00:00.591631",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 38,
+    "category": "Infrastructure",
+    "message": "the unholy levels of powercuts is kinda nostalgic ngl",
+    "ward_name": "Electronic City",
+    "domain": "water",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T18:01:10.930100",
+    "status": "ok",
+    "feedback_type": "other"
+  },
+  {
+    "id": 39,
+    "category": "Test",
+    "message": "There is no water here in the layout",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "water",
+    "tags": [
+      "outage",
+      "water",
+      "ui",
+      "complaint"
+    ],
+    "target": "developer",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T19:56:59.401812",
+    "status": "ok"
+  },
+  {
+    "id": 40,
+    "category": "Test",
+    "message": "Power not coming since morning",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "electricity",
+    "tags": [
+      "electricity"
+    ],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T19:56:59.438467",
+    "status": "ok"
+  },
+  {
+    "id": 41,
+    "category": "Test",
+    "message": "There is no water here in the layout",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "water",
+    "tags": [
+      "complaint",
+      "ui",
+      "water",
+      "outage"
+    ],
+    "target": "developer",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T19:57:44.527729",
+    "status": "ok"
+  },
+  {
+    "id": 42,
+    "category": "Test",
+    "message": "Power not coming since morning",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "electricity",
+    "tags": [
+      "electricity"
+    ],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T19:57:44.575902",
+    "status": "ok"
+  },
+  {
+    "id": 43,
+    "category": "Test",
+    "message": "The street light is not working",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T19:57:44.617937",
+    "status": "ok"
+  },
+  {
+    "id": 44,
+    "category": "Test",
+    "message": "We are without power for 2 days",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "electricity",
+    "tags": [
+      "electricity"
+    ],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T19:57:44.656605",
+    "status": "ok"
+  },
+  {
+    "id": 45,
+    "category": "Test",
+    "message": "Severe flooding in the main road",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "water",
+    "tags": [
+      "traffic",
+      "flooding",
+      "water"
+    ],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T19:57:44.690375",
+    "status": "ok"
+  },
+  {
+    "id": 46,
+    "category": "Test",
+    "message": "Great service, thank you!",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "general",
+    "tags": [
+      "appreciation"
+    ],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T19:57:44.726235",
+    "status": "ok"
+  },
+  {
+    "id": 47,
+    "category": "Test",
+    "message": "The app is amazing and very useful",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "general",
+    "tags": [
+      "appreciation"
+    ],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T19:57:44.763142",
+    "status": "ok"
+  },
+  {
+    "id": 48,
+    "category": "Test",
+    "message": "This is terrible and useless",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T19:57:44.808020",
+    "status": "ok"
+  },
+  {
+    "id": 49,
+    "category": "Test",
+    "message": "The service is not bad",
+    "ward_name": "TestWard",
+    "feedback_type": "other",
+    "domain": "general",
+    "tags": [
+      "complaint"
+    ],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T19:57:44.838640",
+    "status": "ok"
+  },
+  {
+    "id": 50,
+    "category": "Infrastructure",
+    "message": "Test feedback message 123",
+    "ward_name": "Test Ward",
+    "feedback_type": "infrastructure",
+    "domain": "general",
+    "tags": [],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T19:57:56.878035",
+    "status": "ok"
+  },
+  {
+    "id": 51,
+    "category": "Complaint",
+    "message": "never step foot in Ulsoor or you'll become a camp story \ud83d\ude24",
+    "ward_name": "Ulsoor",
+    "feedback_type": "platform",
+    "domain": "electricity",
+    "tags": [
+      "complaint"
+    ],
+    "target": "developer",
+    "sentiment": "negative",
+    "created_at": "2026-02-08T21:14:14.726923",
+    "status": "ok"
+  },
+  {
+    "id": 52,
+    "category": "Suggestion",
+    "message": "please step foot (feet....\ud83e\udd24) in Ulsoor, u'll defo become popular here",
+    "ward_name": "Ulsoor",
+    "feedback_type": "other",
+    "domain": "electricity",
+    "tags": [
+      "suggestion"
+    ],
+    "target": "builder",
+    "sentiment": "positive",
+    "created_at": "2026-02-08T21:16:20.189165",
+    "status": "ok"
+  }
+]
