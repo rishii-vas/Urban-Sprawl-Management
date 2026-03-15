@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Dashboard | Urban Sprawl Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <span class="navbar-brand">
+                <i data-lucide="code"></i>
+                Dev Console
+            </span>
+            <div class="navbar-nav" style="align-items: center;">
+                <span id="user-name" style="color: var(--text-secondary);">Admin</span>
+                <button onclick="logout()" class="btn btn-secondary"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 100px; padding-bottom: 4rem;">
+
+        <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+            <h2>System Overview</h2>
+        </div>
+
+        <!-- System Stats -->
+        <div class="grid grid-3" style="margin-bottom: 2rem;">
+            <div class="stat-card">
+                <div class="stat-label">Total Civilians</div>
+                <div class="stat-value" id="stat-civilians">--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Builders</div>
+                <div class="stat-value" id="stat-builders">--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Feedback</div>
+                <div class="stat-value" id="stat-feedback">--</div>
+            </div>
+        </div>
+
+        <div class="grid grid-2">
+            <!-- User Distribution -->
+            <div class="card">
+                <h3>User Distribution</h3>
+                <div
+                    style="height: 200px; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+                    <!-- Placeholder for Chart -->
+                    <div
+                        style="width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(var(--accent-primary) 0% 80%, var(--accent-warning) 80% 95%, var(--accent-secondary) 95% 100%);">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; font-size: 0.875rem;">
+                    <span style="color: var(--accent-primary);">Civilian (90%)</span>
+                    <span style="color: var(--accent-warning);">Builder (8%)</span>
+                    <span style="color: var(--accent-secondary);">Dev (2%)</span>
+                </div>
+            </div>
+
+            <!-- Feedback Analytics -->
+            <div class="card">
+                <h3>Feedback Sentiment</h3>
+                <div style="margin-top: 1rem;">
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Positive</span>
+                        <span id="sent-pos">--%</span>
+                    </div>
+                    <div
+                        style="width: 100%; height: 8px; background: var(--bg-primary); border-radius: 4px; overflow: hidden; margin-bottom: 1rem;">
+                        <div id="bar-pos" style="width: 0%; height: 100%; background: var(--accent-success);"></div>
+                    </div>
+
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Neutral/Updates</span>
+                        <span id="sent-neu">--%</span>
+                    </div>
+                    <div
+                        style="width: 100%; height: 8px; background: var(--bg-primary); border-radius: 4px; overflow: hidden; margin-bottom: 1rem;">
+                        <div id="bar-neu" style="width: 0%; height: 100%; background: var(--accent-primary);"></div>
+                    </div>
+
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Critical</span>
+                        <span id="sent-neg">--%</span>
+                    </div>
+                    <div
+                        style="width: 100%; height: 8px; background: var(--bg-primary); border-radius: 4px; overflow: hidden; margin-bottom: 1rem;">
+                        <div id="bar-neg" style="width: 0%; height: 100%; background: var(--accent-danger);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h3>Recent User Activity</h3>
+            <table style="width: 100%; margin-top: 1rem; border-collapse: collapse;">
+                <thead>
+                    <tr style="text-align: left; border-bottom: 1px solid var(--glass-border);">
+                        <th style="padding: 1rem 0;">User</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="activity-table" style="color: var(--text-secondary);">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="card" style="margin-top: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3>Developer Feedback</h3>
+            <div style="display: flex; gap: 1rem;">
+                <select id="dev-tag-filter" class="form-select" onchange="loadDevFeedback()"
+                    style="width: auto; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--neutral-300);">
+                    <option value="all">All Tags</option>
+                    <option value="platform">Platform</option>
+                    <option value="developer">Developer</option>
+                </select>
+                <select id="dev-domain-filter" class="form-select" onchange="loadDevFeedback()"
+                    style="width: auto; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--neutral-300);">
+                    <option value="all">All Domains</option>
+                    <option value="water">Water</option>
+                    <option value="traffic">Traffic</option>
+                    <option value="electricity">Electricity</option>
+                    <option value="general">General</option>
+                </select>
+                <select id="dev-sentiment-filter" class="form-select" onchange="loadDevFeedback()"
+                    style="width: auto; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--neutral-300);">
+                    <option value="all">All Sentiments</option>
+                    <option value="positive">Positive</option>
+                    <option value="negative">Negative</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="dev-feedback-list" style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Feedback Cards -->
+            <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">Loading feedback...</div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Auth Check (Basic) - In production use JWT validation
+        const token = localStorage.getItem('token');
+        const role = localStorage.getItem('role');
+
+        if (!token || role !== 'developer') {
+            alert('Access Denied');
+            window.location.href = 'login-developer.html';
+        }
+
+        document.getElementById('user-name').innerText = localStorage.getItem('user_name') || 'Admin';
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = '../index.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Fetch System Overview
+            try {
+                const res = await fetch(`http://127.0.0.1:8000/admin/system-overview`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    document.getElementById('stat-civilians').innerText = data.totalCivilianUsers;
+                    document.getElementById('stat-builders').innerText = data.activeBuilderUsers;
+                    document.getElementById('stat-feedback').innerText = data.totalFeedback;
+                }
+
+                // Fetch User Stats (Activity)
+                const statsRes = await fetch(`http://127.0.0.1:8000/admin/user-stats`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (statsRes.ok) {
+                    const stats = await statsRes.json();
+                    const tbody = document.getElementById('activity-table');
+
+                    if (stats.recentActivity) {
+                        stats.recentActivity.forEach(act => {
+                            const row = document.createElement('tr');
+                            row.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+                            row.innerHTML = `
+                                <td style="padding: 1rem 0;">${act.user}</td>
+                                <td>${act.role}</td>
+                                <td>${act.action}</td>
+                                <td>${act.time}</td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                    }
+                }
+
+                // Fetch Sentiment
+                const sentRes = await fetch(`http://127.0.0.1:8000/admin/feedback-analytics`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (sentRes.ok) {
+                    const sent = await sentRes.json();
+
+                    const setBar = (id, val) => {
+                        document.getElementById('sent-' + id).innerText = val + '%';
+                        document.getElementById('bar-' + id).style.width = val + '%';
+                    }
+
+                    if (sent.sentiment) {
+                        setBar('pos', sent.sentiment.Positive || 0);
+                        setBar('neu', sent.sentiment.Neutral || 0);
+                        setBar('neg', sent.sentiment.Negative || 0);
+                    }
+                }
+            } catch (e) {
+                console.error("Dashboard Load Error", e);
+            }
+
+            loadDevFeedback();
+        });
+
+        async function loadDevFeedback() {
+            const tag = document.getElementById('dev-tag-filter').value;
+            const domain = document.getElementById('dev-domain-filter').value;
+            const sentiment = document.getElementById('dev-sentiment-filter').value;
+            const container = document.getElementById('dev-feedback-list');
+
+            try {
+                let url = `http://127.0.0.1:8000/feedback?target=developer&limit=50`;
+                if (domain !== 'all') url += `&domain=${domain}`;
+                if (tag !== 'all') url += `&tag=${tag}`;
+                if (sentiment !== 'all') url += `&sentiment=${sentiment}`;
+
+                const res = await fetch(url, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                let data = await res.json();
+
+                container.innerHTML = '';
+
+                if (data.length === 0) {
+                    container.innerHTML = `<div style="text-align: center; color: var(--text-secondary); padding: 2rem;">No feedback found for this filter.</div>`;
+                    return;
+                }
+
+                data.forEach(item => {
+                    const date = new Date(item.created_at).toLocaleString();
+                    const domainColor = item.domain === 'water' ? '#26BDE2' :
+                        (item.domain === 'traffic' ? '#FD9D24' :
+                            (item.domain === 'electricity' ? '#FD6925' : '#9ca3af'));
+
+                    const sentimentBadge = item.sentiment === 'positive'
+                        ? `<span style="background: rgba(16, 185, 129, 0.1); color: #10B981; padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem;">Positive</span>`
+                        : (item.sentiment === 'negative'
+                            ? `<span style="background: rgba(239, 68, 68, 0.1); color: #EF4444; padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem;">Negative</span>`
+                            : '');
+
+                    const card = document.createElement('div');
+                    card.style.border = '1px solid var(--neutral-200)';
+                    card.style.borderRadius = 'var(--radius-md)';
+                    card.style.padding = '1rem';
+                    card.style.background = 'var(--bg-card)';
+
+                    // Tags
+                    let tagsHtml = '';
+                    if (item.tags && item.tags.length > 0) {
+                        item.tags.forEach(t => {
+                            let bg = '#e5e7eb';
+                            let col = '#374151';
+                            if (t === 'platform') { bg = '#fee2e2'; col = '#dc2626'; }
+                            if (t === 'developer') { bg = '#fef3c7'; col = '#d97706'; }
+
+                            tagsHtml += `<span style="background: ${bg}; color: ${col}; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.75rem; margin-right: 0.5rem; font-weight: 500;">#${t}</span>`;
+                        });
+                    }
+
+                    card.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                                <span style="background: ${domainColor}20; color: ${domainColor}; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">${item.domain}</span>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); border: 1px solid var(--neutral-200); padding: 0.1rem 0.4rem; border-radius: 4px;">Ward: ${item.ward_name || 'Unknown'}</span>
+                                ${sentimentBadge}
+                                <span style="font-weight: 500; font-size: 0.9rem;">${item.category}</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary); min-width: 140px; text-align: right;">${date}</span>
+                        </div>
+                        <p style="color: var(--text-primary); font-size: 0.9rem; margin-bottom: ${tagsHtml ? '0.5rem' : '0'};">${item.message}</p>
+                        ${tagsHtml ? `<div>${tagsHtml}</div>` : ''}
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (e) {
+                console.error("Feedback load error", e);
+                container.innerHTML = `<div style="text-align: center; color: var(--accent-danger); padding: 2rem;">Failed to load feedback.</div>`;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Login - Urban Sprawl Management System">
+    <title>User Login | Urban Sprawl Management</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <a href="../index.html"
+                style="display: block; text-align: center; margin-bottom: var(--spacing-lg); color: var(--text-secondary); font-size: var(--font-size-sm);">
+                ← Back to Home
+            </a>
+
+            <div class="login-card">
+                <div class="login-icon user">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </div>
+
+                <h2>User Portal</h2>
+                <p class="subtitle">Citizen access to city insights and feedback</p>
+
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="citizen@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" id="password" class="form-input" placeholder="Enter your password"
+                            required>
+                    </div>
+
+                    <div class="form-group" style="display: flex; align-items: center; justify-content: space-between;">
+                        <label
+                            style="display: flex; align-items: center; gap: 8px; font-size: var(--font-size-sm); cursor: pointer;">
+                            <input type="checkbox" id="remember">
+                            Remember me
+                        </label>
+                        <a href="#" style="font-size: var(--font-size-sm); color: var(--secondary-sky);">Forgot
+                            password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; background: linear-gradient(135deg, var(--secondary-sky), var(--secondary-sky-light));">
+                        Sign In to User Portal
+                    </button>
+
+                    <div style="text-align: center; margin-top: var(--spacing-lg);">
+                        <p
+                            style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                            New to the platform?</p>
+                        <a href="#" class="btn btn-secondary btn-sm" style="width: 100%;">Create Account</a>
+                    </div>
+                </form>
+
+                <div class="login-footer">
+                    <p>Looking for other access? <a href="login-developer.html">Developer</a> or <a
+                            href="login-builder.html">Builder</a> portals</p>
+                </div>
+            </div>
+
+            <p
+                style="text-align: center; margin-top: var(--spacing-lg); font-size: var(--font-size-xs); color: var(--text-muted);">
+                For demo purposes, use any email and password to access the dashboard.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Simulate login - redirect to dashboard
+            window.location.href = 'dashboard-user.html';
+        });
+    </script>
+</body>
+
+</html>

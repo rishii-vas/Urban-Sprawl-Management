@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Login | Urban Sprawl Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body
+    style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-primary);">
+
+    <div class="card" style="width: 100%; max-width: 400px;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="margin-bottom: 0.5rem;">Developer Login</h2>
+            <p style="color: var(--text-secondary);">Access system analytics and management.</p>
+        </div>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" id="email" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" id="password" required>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; font-size: 0.875rem;">
+                <label style="display: flex; gap: 0.5rem; color: var(--text-secondary);">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" style="color: var(--accent-primary);">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+        </form>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+            <a href="../index.html" style="color: var(--text-secondary); font-size: 0.875rem;">&larr; Back to Home</a>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const user = await login(email, password);
+            if (user) {
+                if (user.role === 'developer') {
+                    window.location.href = 'dashboard-developer.html';
+                } else {
+                    alert('Access Denied: Not a developer account');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

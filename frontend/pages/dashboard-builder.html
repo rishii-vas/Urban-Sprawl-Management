@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder Dashboard | Urban Sprawl Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .domain-toggle {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .domain-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-md);
+            background: var(--bg-card);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .domain-btn.active {
+            background: var(--primary-emerald);
+            color: white;
+            border-color: var(--primary-emerald);
+        }
+
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-high {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .badge-medium {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+
+        .badge-low {
+            background: #dcfce7;
+            color: #22c55e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--neutral-200);
+        }
+
+        th {
+            background: var(--neutral-50);
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        tr:hover {
+            background: var(--neutral-50);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <span class="navbar-brand">
+                <i data-lucide="hard-hat"></i>
+                Gov Portal
+            </span>
+            <div class="navbar-nav" style="align-items: center;">
+                <span id="user-name" style="color: var(--text-secondary);">Builder</span>
+                <span id="dept-badge"
+                    style="background: rgba(59,130,246,0.1); color: var(--accent-primary); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Builder</span>
+                <button onclick="logout()" class="btn btn-secondary"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar: Alerts -->
+        <aside class="sidebar" style="width: 300px;">
+            <div style="margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><i
+                        data-lucide="alert-triangle" color="var(--accent-warning)"></i> Alert Centre</h3>
+
+                <div class="card" style="padding: 1.5rem; text-align: center; border: 1px solid var(--neutral-200);">
+                    <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem;">High Stress
+                        Wards</div>
+                    <div id="high-stress-count"
+                        style="font-size: 2.5rem; font-weight: 700; color: var(--accent-danger);">--</div>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h5 style="margin-bottom: 0.75rem; font-size: 0.875rem; color: var(--text-secondary);">Critical
+                        Areas</h5>
+                    <ul id="critical-list"
+                        style="font-size: 0.875rem; color: var(--text-primary); padding-left: 1rem; list-style-type: disc;">
+                        <!-- List items added by JS -->
+                    </ul>
+                </div>
+            </div>
+            <!-- Sentiment Chart -->
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Feedback Sentiment</h3>
+                <div
+                    style="height: 200px; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+                <div id="sentiment-legend"
+                    style="text-align: center; margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);">
+                    <!-- Dynamic legend or fallback text -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" style="margin-left: 300px;">
+            <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                <h2>City Infrastructure Map</h2>
+                <p>Monitor ward-level stress across domains.</p>
+            </div>
+
+            <!-- Domain Toggle -->
+            <div class="domain-toggle">
+                <button class="domain-btn active" onclick="switchDomain('water', this)">Water</button>
+                <button class="domain-btn" onclick="switchDomain('traffic', this)">Traffic</button>
+                <button class="domain-btn" onclick="switchDomain('electricity', this)">Electricity</button>
+            </div>
+
+            <!-- Map -->
+            <div class="card" style="padding: 0; overflow: hidden; height: 400px; margin-bottom: 2rem;">
+                <div id="map" style="height: 100%; width: 100%;"></div>
+            </div>
+
+            <!-- Ward Details Table -->
+            <div class="card" style="padding: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3>Ward Details</h3>
+                    <input type="text" id="ward-search" placeholder="Search Ward..."
+                        style="padding: 0.5rem; border: 1px solid var(--neutral-300); border-radius: 4px; font-size: 0.875rem;"
+                        oninput="filterTable()">
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table id="ward-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ward Name</th>
+                                <th>Stress Level</th>
+                                <th id="metric-1-head">Metric 1</th>
+                                <th id="metric-2-head">Metric 2</th>
+                                <th id="metric-3-head">Metric 3</th>
+                                <th id="metric-4-head">Metric 4</th>
+                                <th id="metric-5-head">Metric 5</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ward-table-body">
+                            <!-- Rows loaded by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Feedback Section -->
+            <div class="card" style="padding: 1.5rem; margin-top: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h3>Citizen Feedback</h3>
+                    <div style="display: flex; gap: 1rem;">
+                        <select id="fb-domain-filter" class="form-select" onchange="loadFeedback()"
+                            style="width: auto;">
+                            <option value="all">All Domains</option>
+                            <option value="water">Water</option>
+                            <option value="traffic">Traffic</option>
+                            <option value="electricity">Electricity</option>
+                            <option value="general">General</option>
+                        </select>
+                        <select id="fb-sentiment-filter" class="form-select" onchange="loadFeedback()"
+                            style="width: auto;">
+                            <option value="all">All Sentiments</option>
+                            <option value="positive">Positive</option>
+                            <option value="negative">Negative</option>
+                        </select>
+                        <select id="fb-sort-filter" class="form-select" onchange="loadFeedback()" style="width: auto;">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="feedback-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <!-- Feedback Cards -->
+                    <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">Loading feedback...
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../js/app.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Auth Check
+        const t = localStorage.getItem('token');
+        const r = localStorage.getItem('role');
+        if (!t || r !== 'builder') {
+            alert('Access Denied');
+            window.location.href = 'login-builder.html';
+        }
+        document.getElementById('user-name').innerText = localStorage.getItem('user_name') || 'Builder';
+
+        let currentDomain = 'water';
+        let allWards = [];
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Init Map once
+            const map = initMap('map');
+            // Initial Load
+            await loadDomainData('water');
+            loadFeedback();
+        });
+
+        async function switchDomain(domain, btn) {
+            currentDomain = domain;
+
+            // Update UI buttons
+            document.querySelectorAll('.domain-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            await loadDomainData(domain);
+        }
+
+        async function loadDomainData(domain) {
+            // 1. Fetch Data
+            try {
+                const wards = await fetchWards(domain);
+                allWards = wards || [];
+
+                // 2. Update Map
+                addWardMarkers(allWards);
+
+                // 3. Update Table logic
+                renderTable(allWards);
+
+                // 4. Update Alerts
+                updateAlerts(allWards);
+
+            } catch (e) {
+                console.error("Failed to load domain data", e);
+            }
+        }
+
+        function updateAlerts(wards) {
+            const highStress = wards.filter(w => w.stressLevel === 'High');
+            document.getElementById('high-stress-count').innerText = highStress.length;
+
+            const list = document.getElementById('critical-list');
+            list.innerHTML = '';
+            // Show top 3
+            highStress.slice(0, 3).forEach(w => {
+                const li = document.createElement('li');
+                li.innerText = w.name;
+                list.appendChild(li);
+            });
+        }
+
+        function renderTable(wards) {
+            // Sort: High -> Medium -> Low
+            const priority = { 'High': 1, 'Medium': 2, 'Low': 3 };
+            const sorted = [...wards].sort((a, b) => priority[a.stressLevel] - priority[b.stressLevel]);
+
+            const tbody = document.getElementById('ward-table-body');
+            tbody.innerHTML = '';
+
+            // Set Headers based on domain
+            setTableHeaders();
+
+            sorted.forEach(w => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = getRowHTML(w);
+                tbody.appendChild(tr);
+            });
+
+            // Re-apply filter if any
+            filterTable();
+        }
+
+        function setTableHeaders() {
+            const map = {
+                'water': ['Rainfall (mm)', 'Drainage', 'Flood Incidents', 'Complaint Count', 'Pop. Density'],
+                'traffic': ['Congestion Idx', 'Avg Speed (km/h)', 'Peak Delay (min)', 'Accidents/10k', 'Transport Score'],
+                'electricity': ['Load Index', 'Peak Load (MW)', 'Outage Freq', 'Power Quality', 'Renewable %']
+            };
+            const headers = map[currentDomain];
+            for (let i = 0; i < 5; i++) {
+                document.getElementById(`metric-${i + 1}-head`).innerText = headers[i];
+            }
+        }
+
+        function getRowHTML(w) {
+            const d = w.details;
+            let cells = '';
+
+            // Helper to safe display
+            const safe = (val) => val !== undefined && val !== null ? val : '—';
+
+            if (currentDomain === 'water') {
+                cells = `<td>${safe(d.rainfall)}</td>
+                         <td>${safe(d.drainage)}</td>
+                         <td>${safe(d.floodIncidents)}</td>
+                         <td>${safe(d.waterComplaints)}</td>
+                         <td>${safe(d.popDensity)}</td>`;
+            } else if (currentDomain === 'traffic') {
+                cells = `<td>${safe(d.congestionIndex)}</td>
+                         <td>${safe(d.avgSpeed)}</td>
+                         <td>${safe(d.peakDelay)}</td>
+                         <td>${safe(d.accidentRate)}</td>
+                         <td>${safe(d.transportScore)}</td>`;
+            } else if (currentDomain === 'electricity') {
+                cells = `<td>${safe(d.loadIndex)}</td>
+                         <td>${safe(d.peakLoad)}</td>
+                         <td>${safe(d.outageFrequency)}</td>
+                         <td>${safe(d.powerQuality)}</td>
+                         <td>${safe(d.renewableShare)}</td>`;
+            }
+
+            const badgeClass = w.stressLevel === 'High' ? 'badge-high' : (w.stressLevel === 'Medium' ? 'badge-medium' : 'badge-low');
+
+            return `
+                <td>${w.id}</td>
+                <td class="ward-name">${w.name}</td>
+                <td><span class="badge ${badgeClass}">${w.stressLevel}</span></td>
+                ${cells}
+            `;
+        }
+
+        let sentimentChartInstance = null;
+
+        async function loadFeedback() {
+            const domain = document.getElementById('fb-domain-filter').value;
+            const sentiment = document.getElementById('fb-sentiment-filter').value;
+            const sort = document.getElementById('fb-sort-filter').value;
+            const container = document.getElementById('feedback-list');
+
+            try {
+                let url = `http://127.0.0.1:8000/feedback?target=builder&limit=50`;
+                if (domain !== 'all') url += `&domain=${domain}`;
+                if (sentiment !== 'all') url += `&sentiment=${sentiment}`;
+
+                const res = await fetch(url);
+                let data = await res.json();
+
+                // Client-side sort if needed
+                if (sort === 'oldest') {
+                    data.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+                } else {
+                    data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                }
+
+                updateSentimentChart(data);
+
+                container.innerHTML = '';
+
+                if (data.length === 0) {
+                    container.innerHTML = `<div style="text-align: center; color: var(--text-secondary); padding: 2rem;">No feedback found for this filter.</div>`;
+                    return;
+                }
+
+                data.forEach(item => {
+                    const date = new Date(item.created_at).toLocaleString();
+                    const domainColor = item.domain === 'water' ? '#26BDE2' :
+                        (item.domain === 'traffic' ? '#FD9D24' :
+                            (item.domain === 'electricity' ? '#FD6925' : '#9ca3af'));
+
+                    const sentimentBadge = item.sentiment === 'positive'
+                        ? `<span style="background: rgba(16, 185, 129, 0.1); color: #10B981; padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem;">Positive</span>`
+                        : (item.sentiment === 'negative'
+                            ? `<span style="background: rgba(239, 68, 68, 0.1); color: #EF4444; padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-left: 0.5rem;">Negative</span>`
+                            : '');
+
+                    // Tags HTML
+                    let tagsHtml = '';
+                    if (item.tags && item.tags.length > 0) {
+                        tagsHtml = `<div style="margin-top: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            ${item.tags.map(t => `<span style="font-size: 0.75rem; background: var(--neutral-100); padding: 0.1rem 0.4rem; border-radius: 4px; color: var(--text-secondary); border: 1px solid var(--neutral-200);">#${t}</span>`).join('')}
+                        </div>`;
+                    }
+
+                    const card = document.createElement('div');
+                    card.style.border = '1px solid var(--neutral-200)';
+                    card.style.borderRadius = 'var(--radius-md)';
+                    card.style.padding = '1rem';
+                    card.style.background = 'var(--bg-card)';
+
+                    card.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.2rem;">
+                                    <span style="background: ${domainColor}20; color: ${domainColor}; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">${item.domain}</span>
+                                    <span style="font-size: 0.8rem; color: var(--text-secondary); border: 1px solid var(--neutral-200); padding: 0.1rem 0.4rem; border-radius: 4px;">Ward: ${item.ward_name || 'Unknown'}</span>
+                                    ${sentimentBadge}
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Type: <strong style="color: var(--text-primary);">${item.feedback_type || 'Other'}</strong> • ${item.category}</div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary); min-width: 140px; text-align: right;">${date}</span>
+                        </div>
+                        <p style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: ${tagsHtml ? '0.5rem' : '0'}; line-height: 1.5;">${item.message}</p>
+                        ${tagsHtml ? `<div>${tagsHtml}</div>` : ''}
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (e) {
+                console.error("Feedback load error", e);
+                container.innerHTML = `<div style="text-align: center; color: var(--accent-danger); padding: 2rem;">Failed to load feedback.</div>`;
+            }
+        }
+
+        function updateSentimentChart(data) {
+            const ctx = document.getElementById('sentimentChart').getContext('2d');
+
+            let pos = 0, neg = 0;
+            data.forEach(d => {
+                if (d.sentiment === 'positive') pos++;
+                else if (d.sentiment === 'negative') neg++;
+            });
+
+            const total = pos + neg;
+            document.getElementById('sentiment-legend').innerText = total > 0 ?
+                `Total: ${total} (Pos: ${pos}, Neg: ${neg})` : "No data";
+
+            if (sentimentChartInstance) {
+                sentimentChartInstance.destroy();
+            }
+
+            sentimentChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Positive', 'Negative'],
+                    datasets: [{
+                        data: [pos, neg],
+                        backgroundColor: ['#10B981', '#EF4444'],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        function filterTable() {
+            const term = document.getElementById('ward-search').value.toLowerCase();
+            const rows = document.querySelectorAll('#ward-table-body tr');
+
+            rows.forEach(row => {
+                const name = row.querySelector('.ward-name').innerText.toLowerCase();
+                row.style.display = name.includes(term) ? '' : 'none';
+            });
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = '../index.html';
+        }
+
+    </script>
+</body>
+
+</html>

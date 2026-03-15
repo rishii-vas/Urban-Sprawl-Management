@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civilian Dashboard | Urban Sprawl Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../index.html" class="navbar-brand">
+                <i data-lucide="building-2"></i>
+                Urban Sprawl Mgt.
+            </a>
+            <div class="navbar-nav">
+                <a href="../index.html" class="navbar-link">Home</a>
+                <span class="navbar-link" style="color: var(--accent-primary);">Civilian Portal</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div style="margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 0.5rem;">Filters</h3>
+                <div class="form-group">
+                    <label class="form-label">Data Layer</label>
+                    <select class="form-select" id="layer-select" onchange="updateMapLayer()">
+                        <option value="water">Water Stress</option>
+                        <option value="traffic">Traffic Density</option>
+                        <option value="electricity">Power Usage</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 0.5rem;">Sumbit Feedback</h3>
+                <form id="feedback-form" onsubmit="handleFeedback(event)">
+                    <div class="form-group">
+                        <label class="form-label">Feedback Type</label>
+                        <select class="form-select" id="fb-type" required>
+                            <option value="">Select Type</option>
+                            <option value="platform">App/Platform Issue</option>
+                            <option value="water">Water Supply</option>
+                            <option value="traffic">Traffic</option>
+                            <option value="electricity">Electricity</option>
+                            <option value="infrastructure">Infrastructure</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="fb-category">
+                            <option value="General">General</option>
+                            <option value="Complaint">Complaint</option>
+                            <option value="Suggestion">Suggestion</option>
+                            <option value="Appreciation">Appreciation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ward</label>
+                        <select class="form-select" id="fb-ward" required>
+                            <option value="">Select Ward</option>
+                            <!-- Populated by JS -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-textarea" id="fb-message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Report</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                <h2>City Overview</h2>
+                <p>Real-time monitoring of urban health indicators.</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-3" style="margin-bottom: 2rem;">
+                <div class="stat-card">
+                    <div class="stat-label">City Health Score</div>
+                    <div class="stat-value" id="health-score">--</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Based on comprehensive stress analysis
+                        across all wards.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Air Quality Index</div>
+                    <div class="stat-value" id="aqi-score">--</div>
+                    <div id="aqi-label"
+                        style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; background: var(--bg-primary);">
+                        --</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Green Cover</div>
+                    <div class="stat-value" id="green-cover">--%</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Average vegetation density.</div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="card" style="padding: 1rem;">
+                <h3 style="margin-bottom: 1rem;">Ward Stress Map</h3>
+                <div id="map"></div>
+                <div style="margin-top: 1rem; display: flex; gap: 1rem; font-size: 0.9rem;">
+                    <span style="display: flex; align-items: center; gap: 0.5rem;"><span
+                            style="width: 10px; height: 10px; background: #2ecc71; border-radius: 50%;"></span> Low
+                        Stress</span>
+                    <span style="display: flex; align-items: center; gap: 0.5rem;"><span
+                            style="width: 10px; height: 10px; background: #f1c40f; border-radius: 50%;"></span> Medium
+                        Stress</span>
+                    <span style="display: flex; align-items: center; gap: 0.5rem;"><span
+                            style="width: 10px; height: 10px; background: #e74c3c; border-radius: 50%;"></span> High
+                        Stress</span>
+                </div>
+            </div>
+
+            <!-- Prediction Form Panel (Moved to bottom or side, user asked for it) -->
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Analyze My Area</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Enter local parameters to predict
+                    infrastructure stress.</p>
+                <form id="predict-form" onsubmit="handlePrediction(event)">
+                    <!-- Water Input (Default) -->
+                    <div id="form-water" class="domain-form">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label class="form-label">Rainfall (mm)</label>
+                                <input type="number" step="0.1" class="form-input" id="p-rainfall">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Drainage Quality</label>
+                                <select class="form-select" id="p-drainage">
+                                    <option value="good">Good</option>
+                                    <option value="average">Average</option>
+                                    <option value="poor">Poor</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Elevation</label>
+                                <select class="form-select" id="p-elevation">
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Green Cover (%)</label>
+                                <input type="number" min="0" max="100" class="form-input" id="p-green">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Impervious Surface (%)</label>
+                                <input type="number" min="0" max="100" class="form-input" id="p-impervious">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Population Density</label>
+                                <input type="number" class="form-input" id="p-pop">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Traffic Input -->
+                    <div id="form-traffic" class="domain-form" style="display: none;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label class="form-label">Traffic Congestion Index</label>
+                                <input type="number" class="form-input" id="p-congestion">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Avg Speed (km/h)</label>
+                                <input type="number" class="form-input" id="p-speed">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Peak Delay (min)</label>
+                                <input type="number" class="form-input" id="p-delay">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Vehicle Density (per km)</label>
+                                <input type="number" class="form-input" id="p-density">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Accident Rate (per 10k)</label>
+                                <input type="number" class="form-input" id="p-accidents">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Public Transport Score</label>
+                                <input type="number" class="form-input" id="p-transport">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Electricity Input -->
+                    <div id="form-electricity" class="domain-form" style="display: none;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label class="form-label">Load Index</label>
+                                <input type="number" class="form-input" id="p-load">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Peak Load (MW)</label>
+                                <input type="number" class="form-input" id="p-peak">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Outage Frequency</label>
+                                <input type="number" class="form-input" id="p-outage">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Power Quality Index</label>
+                                <input type="number" class="form-input" id="p-quality">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Transformer Utilization (%)</label>
+                                <input type="number" class="form-input" id="p-transformer">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Renewable Share (%)</label>
+                                <input type="number" class="form-input" id="p-renewable">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <button type="submit" class="btn btn-primary">Predict Stress Level</button>
+                    </div>
+                </form>
+                <div id="prediction-result"
+                    style="margin-top: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: var(--radius-md); display: none;">
+                    <h4>Prediction Result</h4>
+                    <p>Stress Level: <strong id="res-stress">--</strong></p>
+                    <p>Risk Score: <span id="res-risk">--</span></p>
+                    <p>Confidence: <span id="res-conf">--</span></p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../js/app.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Init
+        document.addEventListener('DOMContentLoaded', async () => {
+            initMap('map');
+            await updateMapLayer();
+        });
+
+        async function updateMapLayer() {
+            const domain = document.getElementById('layer-select').value;
+
+            // Toggle Forms
+            document.querySelectorAll('.domain-form').forEach(el => el.style.display = 'none');
+            document.getElementById(`form-${domain}`).style.display = 'block';
+
+            // Update Overview
+            const overview = await fetchCityOverview(domain);
+            if (overview) {
+                document.getElementById('health-score').innerText = overview.healthScore;
+
+                // Dynamic labels
+                const l1 = document.querySelector('.stat-card:nth-child(2) .stat-label');
+                const v1 = document.getElementById('aqi-score');
+                const t1 = document.getElementById('aqi-label'); // Tag
+
+                const l2 = document.querySelector('.stat-card:nth-child(3) .stat-label');
+                const v2 = document.getElementById('green-cover');
+                const s2 = document.querySelector('.stat-card:nth-child(3) .stat-value + div'); // subtitle
+
+                if (domain === 'traffic') {
+                    l1.innerText = "Avg Congestion";
+                    v1.innerText = overview.avgCongestion;
+                    t1.style.display = 'none';
+
+                    l2.innerText = "Avg Speed";
+                    v2.innerText = overview.avgSpeed + " km/h";
+                    s2.innerText = "City-wide average";
+                } else if (domain === 'electricity') {
+                    l1.innerText = "Avg Load Index";
+                    v1.innerText = overview.avgLoadIndex;
+                    t1.style.display = 'none';
+
+                    l2.innerText = "Outage Freq.";
+                    v2.innerText = overview.outageFrequency;
+                    s2.innerText = "Outages per month avg";
+                } else {
+                    l1.innerText = "Air Quality Index";
+                    v1.innerText = overview.aqi;
+                    t1.style.display = 'inline-block';
+                    t1.innerText = overview.aqiLabel;
+
+                    const aqiEl = t1;
+                    if (overview.aqiLabel === 'Good') aqiEl.style.color = 'var(--accent-success)';
+                    else if (overview.aqiLabel === 'Fine') aqiEl.style.color = 'var(--accent-warning)';
+                    else aqiEl.style.color = 'var(--accent-danger)';
+
+                    l2.innerText = "Green Cover";
+                    v2.innerText = overview.greenCover + "%";
+                    s2.innerText = "Average vegetation density";
+                }
+            }
+
+            // Update Map
+            const wards = await fetchWards(domain);
+            if (wards) {
+                // Populate Ward Dropdown
+                const wardSelect = document.getElementById('fb-ward');
+                const currentVal = wardSelect.value;
+                wardSelect.innerHTML = '<option value="">Select Ward</option>';
+                wards.forEach(w => {
+                    const opt = document.createElement('option');
+                    opt.value = w.name;
+                    opt.innerText = w.name;
+                    wardSelect.appendChild(opt);
+                });
+                // Restore selection if exists in new list
+                if (currentVal && Array.from(wardSelect.options).some(o => o.value === currentVal)) {
+                    wardSelect.value = currentVal;
+                }
+
+                addWardMarkers(wards, (ward) => {
+                    let detailsHtml = '';
+                    for (const [key, value] of Object.entries(ward.details)) {
+                        if (key !== 'description') detailsHtml += `<b>${key}:</b> ${value}<br>`;
+                    }
+                    alert(`Selected Ward: ${ward.name}\nStress Level: ${ward.stressLevel}\n\n${detailsHtml}`);
+                });
+            }
+        }
+
+        async function handleFeedback(e) {
+            e.preventDefault();
+            const type = document.getElementById('fb-type').value;
+            const cat = document.getElementById('fb-category').value;
+            const msg = document.getElementById('fb-message').value;
+            const ward = document.getElementById('fb-ward').value;
+            const domain = document.getElementById('layer-select').value;
+
+            if (!type) {
+                alert("Please select a feedback type.");
+                return;
+            }
+            if (!ward) {
+                alert("Please select a ward.");
+                return;
+            }
+
+            const res = await submitFeedback(cat, msg, ward, domain, type);
+
+            if (res && res.status === 'ok') {
+                alert(`Feedback submitted! ID: ${res.id}\nSentiment: ${res.sentiment}\nTarget: ${res.target}`);
+                document.getElementById('feedback-form').reset();
+            }
+        }
+
+        async function handlePrediction(e) {
+            e.preventDefault();
+            const domain = document.getElementById('layer-select').value;
+            let data = { domain: domain };
+
+            if (domain === 'traffic') {
+                data.trafficCongestionIndex = parseFloat(document.getElementById('p-congestion').value);
+                data.avgSpeedKmph = parseFloat(document.getElementById('p-speed').value);
+                data.peakDelayMin = parseFloat(document.getElementById('p-delay').value);
+                data.vehicleDensityPerKm = parseFloat(document.getElementById('p-density').value);
+                data.accidentRatePer10k = parseFloat(document.getElementById('p-accidents').value);
+                data.publicTransportScore = parseFloat(document.getElementById('p-transport').value);
+            } else if (domain === 'electricity') {
+                data.loadIndex = parseFloat(document.getElementById('p-load').value);
+                data.peakLoadMW = parseFloat(document.getElementById('p-peak').value);
+                data.outageFrequency = parseFloat(document.getElementById('p-outage').value);
+                data.powerQualityIndex = parseFloat(document.getElementById('p-quality').value);
+                data.transformerUtilizationPct = parseFloat(document.getElementById('p-transformer').value);
+                data.renewableSharePct = parseFloat(document.getElementById('p-renewable').value);
+            } else {
+                // water
+                data.rainfall = parseFloat(document.getElementById('p-rainfall').value);
+                data.drainage = document.getElementById('p-drainage').value;
+                data.elevation = document.getElementById('p-elevation').value;
+                data.greenCover = parseFloat(document.getElementById('p-green').value);
+                data.imperviousSurface = parseFloat(document.getElementById('p-impervious').value);
+                data.populationDensity = parseFloat(document.getElementById('p-pop').value);
+            }
+
+            const res = await submitPrediction(data);
+            if (res) {
+                const resDiv = document.getElementById('prediction-result');
+                resDiv.style.display = 'block';
+                document.getElementById('res-stress').innerText = res.stressLevel;
+                document.getElementById('res-risk').innerText = res.riskScore;
+                document.getElementById('res-conf').innerText = (res.confidence * 100).toFixed(1) + '%';
+
+                const stressEl = document.getElementById('res-stress');
+                if (res.stressLevel === 'Low') stressEl.style.color = 'var(--accent-success)';
+                else if (res.stressLevel === 'Medium') stressEl.style.color = 'var(--accent-warning)';
+                else stressEl.style.color = 'var(--accent-danger)';
+            }
+        }
+    </script>
+</body>
+
+</html>

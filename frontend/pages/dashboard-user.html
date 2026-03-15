@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Dashboard - Urban Sprawl Management System">
+    <title>User Dashboard | Urban Sprawl Management</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--secondary-sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+                Urban Sprawl
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Explore</div>
+                    <a href="#" class="sidebar-link active" data-tab="overview">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        City Overview
+                    </a>
+                    <a href="#" class="sidebar-link" data-tab="ml-demo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                        </svg>
+                        How It Works
+                    </a>
+                    <a href="#" class="sidebar-link" data-tab="city-health">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                        City Health
+                    </a>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Learn</div>
+                    <a href="#" class="sidebar-link" data-tab="about">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="16" x2="12" y2="12" />
+                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                        About the Project
+                    </a>
+                    <a href="#" class="sidebar-link" data-tab="sdg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                        SDG Goals
+                    </a>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Engage</div>
+                    <a href="#" class="sidebar-link" data-tab="feedback">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        Share Feedback
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="sidebar-avatar"
+                        style="background: linear-gradient(135deg, var(--secondary-sky), var(--secondary-sky-light));">
+                        CU</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name">Citizen User</div>
+                        <div class="sidebar-user-role">Community Member</div>
+                    </div>
+                </div>
+                <a href="../index.html" class="btn btn-sm btn-secondary"
+                    style="width: 100%; margin-top: var(--spacing-md);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- City Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Welcome to Urban Sprawl Management</h1>
+                        <p class="page-subtitle">Explore your city's data and contribute to better urban planning</p>
+                    </div>
+                </div>
+
+                <!-- Welcome Card -->
+                <div class="card"
+                    style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(16, 185, 129, 0.1)); margin-bottom: var(--spacing-xl);">
+                    <div class="flex items-center gap-lg">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: var(--spacing-sm);">Your City at a Glance</h3>
+                            <p style="color: var(--text-secondary);">
+                                This platform uses machine learning to analyze urban growth patterns and help make our
+                                city
+                                more sustainable. As a citizen, you can explore city data and share your valuable
+                                feedback.
+                            </p>
+                        </div>
+                        <div class="stat-icon"
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--secondary-sky), var(--primary-emerald)); border-radius: var(--radius-xl);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Stats -->
+                <div class="grid grid-3" style="margin-bottom: var(--spacing-xl);">
+                    <div class="stat-card text-center">
+                        <div class="stat-value text-gradient">78</div>
+                        <div class="stat-label">City Health Score</div>
+                        <p
+                            style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: var(--spacing-sm);">
+                            Out of 100</p>
+                    </div>
+                    <div class="stat-card text-center">
+                        <div class="stat-value" style="color: var(--primary-emerald);">Good</div>
+                        <div class="stat-label">Air Quality Today</div>
+                        <p
+                            style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: var(--spacing-sm);">
+                            AQI: 52</p>
+                    </div>
+                    <div class="stat-card text-center">
+                        <div class="stat-value" style="color: var(--secondary-sky);">24%</div>
+                        <div class="stat-label">Green Cover</div>
+                        <p
+                            style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: var(--spacing-sm);">
+                            Parks & forests</p>
+                    </div>
+                </div>
+
+                <!-- City Trend -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">City Health Trend (Last 6 Months)</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="simpleSprawlChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ML Demo Tab -->
+            <div id="ml-demo" class="tab-content">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">How It Works</h1>
+                        <p class="page-subtitle">Understanding the machine learning behind urban planning</p>
+                    </div>
+                </div>
+
+                <!-- Step by Step -->
+                <div class="grid grid-2" style="margin-bottom: var(--spacing-xl);">
+                    <div class="card">
+                        <h4 style="margin-bottom: var(--spacing-lg);">The Process</h4>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <strong>1. Data Collection</strong>
+                                    <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">We gather
+                                        data from sensors, surveys, and public records about traffic, land use, and
+                                        environment.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <strong>2. Pattern Analysis</strong>
+                                    <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Machine
+                                        learning algorithms identify patterns in urban growth and development.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <strong>3. Predictions</strong>
+                                    <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">The system
+                                        forecasts future scenarios to help planners make better decisions.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <strong>4. Action</strong>
+                                    <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Officials
+                                        use these insights to create policies for sustainable city development.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="margin-bottom: var(--spacing-lg);">Interactive Demo</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+                            See how changing growth factors affects predicted outcomes:
+                        </p>
+
+                        <div style="margin-bottom: var(--spacing-lg);">
+                            <label class="form-label">Population Growth Rate</label>
+                            <input type="range" id="demoPopGrowth" min="0" max="10" value="5" style="width: 100%;">
+                            <div class="flex justify-between"
+                                style="font-size: var(--font-size-xs); color: var(--text-muted);">
+                                <span>Low</span><span>High</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: var(--spacing-lg);">
+                            <label class="form-label">Green Space Investment</label>
+                            <input type="range" id="demoGreenSpace" min="0" max="10" value="7" style="width: 100%;">
+                            <div class="flex justify-between"
+                                style="font-size: var(--font-size-xs); color: var(--text-muted);">
+                                <span>Low</span><span>High</span>
+                            </div>
+                        </div>
+
+                        <div class="alert-banner success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                            <div>
+                                <strong>Predicted Outcome: Sustainable Growth</strong>
+                                <p style="font-size: var(--font-size-sm);">With these settings, city health is projected
+                                    to improve by 12%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Insights -->
+                <div class="card">
+                    <h4 style="margin-bottom: var(--spacing-lg);">What the Data Shows</h4>
+                    <div class="grid grid-3">
+                        <div class="text-center">
+                            <div class="stat-icon emerald" style="margin: 0 auto var(--spacing-md);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                                    <path d="m9 12 2 2 4-4" />
+                                </svg>
+                            </div>
+                            <h5>Green spaces reduce stress</h5>
+                            <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Areas with more
+                                parks show 23% better well-being scores</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stat-icon sky" style="margin: 0 auto var(--spacing-md);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                            <h5>Public transit matters</h5>
+                            <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Better transit
+                                reduces congestion by up to 35%</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stat-icon orange" style="margin: 0 auto var(--spacing-md);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M2 20h20" />
+                                    <path d="M5 20V8.7a1 1 0 0 1 .4-.8l4-2.7a1 1 0 0 1 1.2 0l4 2.7a1 1 0 0 1 .4.8V20" />
+                                </svg>
+                            </div>
+                            <h5>Smart density works</h5>
+                            <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Mixed-use zones are
+                                40% more efficient than sprawl</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- City Health Tab -->
+            <div id="city-health" class="tab-content">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">City Health Summary</h1>
+                        <p class="page-subtitle">Easy-to-understand urban indicators</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: var(--spacing-xl);">
+                    <div class="card">
+                        <h4 style="margin-bottom: var(--spacing-xl);">How's Our City Doing?</h4>
+
+                        <div style="margin-bottom: var(--spacing-xl);">
+                            <div class="flex justify-between items-center mb-sm">
+                                <span>🌳 Green Spaces</span>
+                                <span class="badge success">Good</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill emerald" style="width: 72%;"></div>
+                            </div>
+                            <p
+                                style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: var(--spacing-xs);">
+                                24% of city area is green - above national average</p>
+                        </div>
+
+                        <div style="margin-bottom: var(--spacing-xl);">
+                            <div class="flex justify-between items-center mb-sm">
+                                <span>🚗 Traffic Flow</span>
+                                <span class="badge warning">Fair</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill orange" style="width: 55%;"></div>
+                            </div>
+                            <p
+                                style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: var(--spacing-xs);">
+                                Peak hours show congestion in central areas</p>
+                        </div>
+
+                        <div style="margin-bottom: var(--spacing-xl);">
+                            <div class="flex justify-between items-center mb-sm">
+                                <span>💧 Water Quality</span>
+                                <span class="badge success">Good</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill sky" style="width: 85%;"></div>
+                            </div>
+                            <p
+                                style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: var(--spacing-xs);">
+                                Clean water available to 98% of residents</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-sm">
+                                <span>🏠 Housing</span>
+                                <span class="badge warning">Fair</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill violet" style="width: 48%;"></div>
+                            </div>
+                            <p
+                                style="font-size: var(--font-size-xs); color: var(--text-muted); margin-top: var(--spacing-xs);">
+                                Affordable housing is still a challenge</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="margin-bottom: var(--spacing-lg);">What's Improving?</h4>
+
+                        <div class="alert-banner success" style="margin-bottom: var(--spacing-md);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                            </svg>
+                            <div>
+                                <strong>Air Quality improved 15%</strong>
+                                <p style="font-size: var(--font-size-sm);">Thanks to new emission standards</p>
+                            </div>
+                        </div>
+
+                        <div class="alert-banner success" style="margin-bottom: var(--spacing-md);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                            </svg>
+                            <div>
+                                <strong>New metro line opened</strong>
+                                <p style="font-size: var(--font-size-sm);">Serving 50,000 daily commuters</p>
+                            </div>
+                        </div>
+
+                        <div class="alert-banner info" style="margin-bottom: var(--spacing-md);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            <div>
+                                <strong>Park expansion underway</strong>
+                                <p style="font-size: var(--font-size-sm);">3 new parks by end of 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="alert-banner warning">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            </svg>
+                            <div>
+                                <strong>Traffic congestion increased</strong>
+                                <p style="font-size: var(--font-size-sm);">More transit investment needed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Tab -->
+            <div id="about" class="tab-content">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">About the Project</h1>
+                        <p class="page-subtitle">Our mission for sustainable urban development</p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-bottom: var(--spacing-xl);">
+                    <h3 style="margin-bottom: var(--spacing-lg);">Our Mission</h3>
+                    <p
+                        style="color: var(--text-secondary); font-size: var(--font-size-lg); line-height: 1.8; margin-bottom: var(--spacing-lg);">
+                        Urban Sprawl Management is an innovative decision support system that harnesses the power of
+                        machine learning to help cities grow sustainably. By integrating multiple data sources and
+                        providing clear, actionable insights, we empower planners, officials, and citizens to make
+                        informed decisions about urban development.
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+                        Our platform addresses the challenges of fragmented urban data and reactive planning by
+                        offering predictive analytics, pattern recognition, and scenario modeling capabilities.
+                    </p>
+                </div>
+
+                <div class="grid grid-3" style="margin-bottom: var(--spacing-xl);">
+                    <div class="card text-center">
+                        <div class="stat-icon emerald"
+                            style="width: 64px; height: 64px; margin: 0 auto var(--spacing-lg);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                        </div>
+                        <h5>Predictive</h5>
+                        <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Forecast urban trends
+                            before they happen</p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="stat-icon sky" style="width: 64px; height: 64px; margin: 0 auto var(--spacing-lg);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                            </svg>
+                        </div>
+                        <h5>Integrated</h5>
+                        <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Unified view of all
+                            urban data</p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="stat-icon orange"
+                            style="width: 64px; height: 64px; margin: 0 auto var(--spacing-lg);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h5>Collaborative</h5>
+                        <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Engaging citizens in
+                            planning</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4 style="margin-bottom: var(--spacing-lg);">Key Features</h4>
+                    <div class="grid grid-2">
+                        <div class="about-feature" style="margin-bottom: var(--spacing-md);">
+                            <div class="about-feature-icon">✓</div>
+                            <div>
+                                <h5>Data Integration</h5>
+                                <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Combining
+                                    multiple data sources into unified analytics</p>
+                            </div>
+                        </div>
+                        <div class="about-feature" style="margin-bottom: var(--spacing-md);">
+                            <div class="about-feature-icon">✓</div>
+                            <div>
+                                <h5>ML-Powered Insights</h5>
+                                <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Pattern
+                                    recognition and predictive analytics</p>
+                            </div>
+                        </div>
+                        <div class="about-feature" style="margin-bottom: var(--spacing-md);">
+                            <div class="about-feature-icon">✓</div>
+                            <div>
+                                <h5>Scenario Planning</h5>
+                                <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Model different
+                                    policy outcomes</p>
+                            </div>
+                        </div>
+                        <div class="about-feature" style="margin-bottom: var(--spacing-md);">
+                            <div class="about-feature-icon">✓</div>
+                            <div>
+                                <h5>Explainable Results</h5>
+                                <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Clear,
+                                    interpretable outputs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SDG Goals Tab -->
+            <div id="sdg" class="tab-content">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Sustainable Development Goals</h1>
+                        <p class="page-subtitle">How our project supports global sustainability</p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-bottom: var(--spacing-xl);">
+                    <p style="color: var(--text-secondary); font-size: var(--font-size-lg);">
+                        Our platform is designed to support the United Nations Sustainable Development Goals,
+                        particularly those related to sustainable urban development and environmental protection.
+                    </p>
+                </div>
+
+                <div class="grid grid-2" style="gap: var(--spacing-xl);">
+                    <div class="card" style="border-left: 4px solid #fd9d24;">
+                        <div class="flex items-center gap-md mb-md">
+                            <span class="badge"
+                                style="background: #fd9d24; color: white; font-size: var(--font-size-lg); padding: 8px 16px;">11</span>
+                            <h4>Sustainable Cities and Communities</h4>
+                        </div>
+                        <p style="color: var(--text-secondary);">
+                            Make cities and human settlements inclusive, safe, resilient and sustainable through
+                            data-driven urban planning and decision support.
+                        </p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #f36d25;">
+                        <div class="flex items-center gap-md mb-md">
+                            <span class="badge"
+                                style="background: #f36d25; color: white; font-size: var(--font-size-lg); padding: 8px 16px;">9</span>
+                            <h4>Industry, Innovation and Infrastructure</h4>
+                        </div>
+                        <p style="color: var(--text-secondary);">
+                            Build resilient infrastructure and promote sustainable industrialization through
+                            innovative ML-powered analytics and forecasting.
+                        </p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #26bde2;">
+                        <div class="flex items-center gap-md mb-md">
+                            <span class="badge"
+                                style="background: #26bde2; color: white; font-size: var(--font-size-lg); padding: 8px 16px;">6</span>
+                            <h4>Clean Water and Sanitation</h4>
+                        </div>
+                        <p style="color: var(--text-secondary);">
+                            Ensure availability and sustainable management of water through integrated
+                            environmental monitoring and resource planning.
+                        </p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #3f7e44;">
+                        <div class="flex items-center gap-md mb-md">
+                            <span class="badge"
+                                style="background: #3f7e44; color: white; font-size: var(--font-size-lg); padding: 8px 16px;">13</span>
+                            <h4>Climate Action</h4>
+                        </div>
+                        <p style="color: var(--text-secondary);">
+                            Take urgent action to combat climate change through environmental impact analysis
+                            and sustainable development planning.
+                        </p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #4c9f38; grid-column: span 2;">
+                        <div class="flex items-center gap-md mb-md">
+                            <span class="badge"
+                                style="background: #4c9f38; color: white; font-size: var(--font-size-lg); padding: 8px 16px;">3</span>
+                            <h4>Good Health and Well-being</h4>
+                        </div>
+                        <p style="color: var(--text-secondary);">
+                            Ensure healthy lives and promote well-being for all through urban planning that
+                            prioritizes green spaces, clean air, and livable communities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Tab -->
+            <div id="feedback" class="tab-content">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Share Your Feedback</h1>
+                        <p class="page-subtitle">Help us improve our city planning tools</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: var(--spacing-xl);">
+                    <div class="card">
+                        <h4 style="margin-bottom: var(--spacing-lg);">We Want to Hear From You!</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xl);">
+                            Your feedback helps us improve this platform and better serve our community.
+                            Share your thoughts, suggestions, or report any issues you encounter.
+                        </p>
+
+                        <form id="feedbackForm">
+                            <div class="form-group">
+                                <label class="form-label">What type of feedback?</label>
+                                <select class="form-input">
+                                    <option>General Suggestion</option>
+                                    <option>Feature Request</option>
+                                    <option>Report an Issue</option>
+                                    <option>Compliment</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Your Area/Zone (Optional)</label>
+                                <select class="form-input">
+                                    <option value="">Select your area...</option>
+                                    <option>Zone 1 - Central</option>
+                                    <option>Zone 2 - North</option>
+                                    <option>Zone 3 - South</option>
+                                    <option>Zone 4 - East</option>
+                                    <option>Zone 5 - West</option>
+                                    <option>Zone 6 - Outer</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Your Feedback</label>
+                                <textarea class="form-input" placeholder="Tell us what's on your mind..."
+                                    rows="5"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label
+                                    style="display: flex; align-items: center; gap: 8px; font-size: var(--font-size-sm); cursor: pointer;">
+                                    <input type="checkbox">
+                                    I'd like to receive updates about how my feedback was used
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                                Submit Feedback
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-lg);">
+                            <h4 style="margin-bottom: var(--spacing-lg);">Why Your Voice Matters</h4>
+                            <div class="flex items-center gap-md" style="margin-bottom: var(--spacing-md);">
+                                <div class="stat-icon emerald" style="min-width: 40px; height: 40px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>342</strong>
+                                    <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Citizens
+                                        have shared feedback</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-md" style="margin-bottom: var(--spacing-md);">
+                                <div class="stat-icon sky" style="min-width: 40px; height: 40px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>28</strong>
+                                    <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">
+                                        Improvements made from feedback</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-md">
+                                <div class="stat-icon orange" style="min-width: 40px; height: 40px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>12</strong>
+                                    <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Features
+                                        added by request</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h5 style="margin-bottom: var(--spacing-md);">Recent Community Feedback</h5>
+                            <div
+                                style="border-bottom: 1px solid var(--neutral-200); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                <p style="font-size: var(--font-size-sm);">"Love seeing the city health data - very
+                                    informative!"</p>
+                                <p style="font-size: var(--font-size-xs); color: var(--text-muted);">Zone 2 Resident • 1
+                                    day ago</p>
+                            </div>
+                            <div
+                                style="border-bottom: 1px solid var(--neutral-200); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                <p style="font-size: var(--font-size-sm);">"Would love to see more about bike lanes in
+                                    my area"</p>
+                                <p style="font-size: var(--font-size-xs); color: var(--text-muted);">Zone 4 Resident • 3
+                                    days ago</p>
+                            </div>
+                            <div>
+                                <p style="font-size: var(--font-size-sm);">"The green space info helped me find a new
+                                    park!"</p>
+                                <p style="font-size: var(--font-size-xs); color: var(--text-muted);">Zone 1 Resident • 5
+                                    days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // User Dashboard specific charts
+        document.addEventListener('DOMContentLoaded', function () {
+            // Simple Sprawl Chart
+            const simpleCtx = document.getElementById('simpleSprawlChart');
+            if (simpleCtx) {
+                new Chart(simpleCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'],
+                        datasets: [{
+                            label: 'City Health Score',
+                            data: [72, 74, 73, 76, 77, 78],
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 6,
+                            pointBackgroundColor: '#10b981',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointHoverRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                min: 60,
+                                max: 90,
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                ticks: {
+                                    callback: function (value) { return value + '%'; }
+                                }
+                            },
+                            x: { grid: { display: false } }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

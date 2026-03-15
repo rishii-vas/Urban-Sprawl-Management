@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Sprawl Management | Smart City Decision Support</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<script src="js/app.js"></script>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">
+                <i data-lucide="building-2"></i>
+                Urban Sprawl Mgt.
+            </a>
+            <div class="navbar-nav">
+                <a href="#about" class="navbar-link">About</a>
+                <a href="#portals" class="navbar-link">Portals</a>
+                <a href="#features" class="navbar-link">Features</a>
+                <a href="#sdg" class="navbar-link">SDGs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section" style="padding-top: 8rem; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem;">
+                Smart Cities Through <span class="text-gradient">Data-Driven</span> Decisions
+            </h1>
+            <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 700px; margin: 0 auto 3rem;">
+                An integrated AI platform for monitoring urban infrastructure stress, predicting growth patterns, and
+                ensuring sustainable development.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="#portals" class="btn btn-primary">Get Started <i data-lucide="arrow-right"></i></a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About The Platform</h2>
+                <p>Empowering citizens and governments to build resilient urban environments.</p>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3><i data-lucide="activity" style="color: var(--accent-primary); margin-right: 0.5rem;"></i>
+                        Predictive Analysis</h3>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">
+                        Utilizing advanced machine learning models to forecast infrastructure stress levels based on
+                        rainfall, population density, and land use patterns.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3><i data-lucide="users" style="color: var(--accent-secondary); margin-right: 0.5rem;"></i>
+                        Community Driven</h3>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">
+                        Bridging the gap between civilians and city planners through transparent data sharing and active
+                        feedback loops.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portals Section -->
+    <section id="portals" class="section" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Access Portals</h2>
+                <p>Select your role to access the dashboard.</p>
+            </div>
+            <div class="portals-grid">
+                <!-- Civilian -->
+                <div class="portal-card">
+                    <div class="portal-icon">
+                        <i data-lucide="user" size="40"></i>
+                    </div>
+                    <h3>Citizen Portal</h3>
+                    <p>View city health, reported issues, and submit feedback.</p>
+                    <a href="pages/civilian-dashboard.html" class="btn btn-secondary" style="width: 100%;">Enter
+                        Dashboard</a>
+                </div>
+
+                <!-- Builder -->
+                <div class="portal-card builder">
+                    <div class="portal-icon">
+                        <i data-lucide="hard-hat" size="40"></i>
+                    </div>
+                    <h3>Builder / Gov Portal</h3>
+                    <p>Monitor infrastructure stress, view alerts, and track SDG progress.</p>
+                    <a href="pages/login-builder.html" class="btn btn-secondary" style="width: 100%;">Login</a>
+                </div>
+
+                <!-- Developer -->
+                <div class="portal-card developer">
+                    <div class="portal-icon">
+                        <i data-lucide="code" size="40"></i>
+                    </div>
+                    <h3>Developer Portal</h3>
+                    <p>Manage system health, user statistics, and analytics.</p>
+                    <a href="pages/login-developer.html" class="btn btn-secondary" style="width: 100%;">Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features & SDG -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Platform Capabilities</h2>
+            </div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h4>Ward-Level Analysis</h4>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem">Granular insights into specific city
+                        wards.</p>
+                </div>
+                <div class="card">
+                    <h4>Risk Assessment</h4>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem">AI-driven risk scoring for flood and
+                        stress.</p>
+                </div>
+                <div class="card">
+                    <h4>Decision Support</h4>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem">Actionable recommendations for city
+                        planners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sdg" class="section" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <div class="section-header">
+                <h2>UN SDG Alignment</h2>
+                <p>Commitment to sustainable development goals.</p>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div class="card" style="text-align: center; min-width: 150px;">
+                    <h3 style="color: #4C9F38;">SDG 3</h3>
+                    <p>Good Health</p>
+                </div>
+                <div class="card" style="text-align: center; min-width: 150px;">
+                    <h3 style="color: #26BDE2;">SDG 6</h3>
+                    <p>Clean Water</p>
+                </div>
+                <div class="card" style="text-align: center; min-width: 150px;">
+                    <h3 style="color: #FD6925;">SDG 9</h3>
+                    <p>Innovation</p>
+                </div>
+                <div class="card" style="text-align: center; min-width: 150px;">
+                    <h3 style="color: #FD9D24;">SDG 11</h3>
+                    <p>Sustainable Cities</p>
+                </div>
+                <div class="card" style="text-align: center; min-width: 150px;">
+                    <h3 style="color: #3F7E44;">SDG 13</h3>
+                    <p>Climate Action</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">Urban Sprawl Mgt.</div>
+                    <p style="color: var(--text-secondary);">Aligned with UN Sustainable Development Goals</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="#about" class="footer-link">About</a>
+                        <a href="#features" class="footer-link">Features</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Portals</h4>
+                    <div class="footer-links">
+                        <a href="pages/civilian-dashboard.html" class="footer-link">Civilian</a>
+                        <a href="pages/login-builder.html" class="footer-link">Builder</a>
+                        <a href="pages/login-developer.html" class="footer-link">Developer</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Documentation</a>
+                        <a href="#" class="footer-link">GitHub</a>
+                        <a href="#" class="footer-link">API Docs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Urban Sprawl Management. Prototype Version.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
